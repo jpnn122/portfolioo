@@ -1,0 +1,106 @@
+---
+import Section from '@/components/Section.astro'
+import { work } from '@cv'
+import { Icon } from 'astro-icon/components'
+---
+
+<Section className={Astro.props.className} title="Expériences">
+  <div id="contact" class="space-y-6">
+    
+    <div class="space-y-6">
+      <div class="bg-skin-button-accent/10 p-6 rounded-lg border-l-4 border-skin-hue">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+          <div>
+            <h4 class="text-lg font-semibold text-skin-base">Administrateur de système & réseaux - Stage</h4>
+            <p class="text-skin-hue font-medium">SNM Cloud</p>
+            <p class="text-sm text-skin-muted">Nanterre - France </p>
+          </div>
+          <span class="text-sm text-skin-muted bg-skin-hue/10 px-3 py-1 rounded-full mt-2 md:mt-0">
+            Février - Avril 2025
+          </span>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <h5 class="text-base font-semibold text-skin-base mb-2">🎯 Projet principal : Administrateur de système & réseaux</h5>
+            <p class="text-skin-muted text-sm leading-relaxed">
+              Lors de mon stage, j'étais en charge de la gestion des tickets, du niveau 1 à niveau 3.
+Qu'il s'agisse d'un simple problème d'imprimante, d'une panne de serveur critique ou d'une
+boîte mail compromise, mon rôle était d’analyser, résoudre et assurer le suivi de chaque
+demande pour garantir la continuité des services informatiques via OTRS*. En parallèle de
+cette mission, j'étais aussi responsable de la gestion des sauvegardes à l'aide de Veeam
+Backup & Replication. Mon rôle consistait à superviser et assurer la protection des
+données en mettant en place des stratégies de sauvegarde adaptées aux besoins de
+l’entreprise. Cela impliquait la planification des backups, la vérification de leur bon
+déroulement, ainsi que la restauration de fichiers ou de machines virtuelles en cas
+d'incident. J’ai aussi eu l’occasion d’intervenir chez des clients pour des projets inoubliables.
+Dans le cadre de mon stage, mon objectif est de mettre en pratique mes compétences en
+système et réseau tout en développant ma communication avec les clients et mes
+collègues.
+            </p>
+
+          </div>
+
+          <div>
+            <h5 class="text-base font-semibold text-skin-base mb-2">🛠️ Missions réalisées</h5>
+            <ul class="text-sm text-skin-muted space-y-1">
+              <li>• <strong>Reprise de projet :</strong> Analyse des sauvegardes</li>
+              <li>• <strong>Nouvelles fonctionnalités :</strong> Installations de serveurs + paramétrages</li>
+              <li>• <strong>Optimisation :</strong> Aide aux clients, détection de problèmes, anticipation </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-base font-semibold text-skin-base mb-2">💻 Technologies utilisées</h5>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-skin-hue/10 text-skin-base px-2 py-1 rounded text-xs">Veaam</span>
+              <span class="bg-skin-hue/10 text-skin-base px-2 py-1 rounded text-xs">Pack Office</span>
+              <span class="bg-skin-hue/10 text-skin-base px-2 py-1 rounded text-xs">Python</span>
+              <span class="bg-skin-hue/10 text-skin-base px-2 py-1 rounded text-xs">Machines Virtuelles</span>
+              <span class="bg-skin-hue/10 text-skin-base px-2 py-1 rounded text-xs">O.T.R.S</span>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="text-base font-semibold text-skin-base mb-2">🚀 Apports du stage</h5>
+            <ul class="text-sm text-skin-muted space-y-1">
+              <li>• Forte montée en compétences techniques (réseaux, cybersécurité, communication)</li>
+              <li>• Découverte des technologies de sécurisation de données avancées et intégration dans des outils métiers</li>
+              <li>• Évolution de la posture étudiante vers une posture professionnelle</li>
+              <li>• Travail en équipe multidisciplinaire dans un environnement bienveillant</li>
+              <li>• Point positif : Immergé dans ce que j'aime : cybersécurité et beaucoup d'autonomie et de prise d'initiative de ma part</li>
+              <li>• Point négatif : Pas de télé-travail alors qu'il aurait été possible..</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-l-4 border-skin-hue pl-4">
+        <p class="text-sm text-skin-muted italic">
+          💡 <strong>Impact :</strong> Ce stage a renforcé mon envie de poursuivre en BUT3 en alternance, 
+          avec une spécialisation en cybersécurité/réseaux, et m'a donné une vision concrète du monde en entreprise.
+          Auto-évaluation : 8/10, un peu lassant mais j'ai appris beaucoup de chose ! 
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<script>
+  const expandButton = document.querySelectorAll('.expand-button');
+
+  expandButton.forEach(button => {
+    button.addEventListener('click', () => {
+      const container = button.closest<HTMLElement>('.expand-container')!;
+      container.dataset.expanded = container.dataset.expanded === 'true' ? 'false' : 'true';
+      const expandText = button.querySelector('.expand-text')!;
+      expandText.innerHTML = container.dataset.expanded === 'true' ? 'Show less' : 'Show more'
+    });
+  });
+</script>
+
+<style>
+  li::marker {
+    @apply text-skin-hue
+  }
+</style>

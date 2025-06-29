@@ -1,0 +1,18 @@
+---
+import Section from "../Section.astro";
+
+import CV from "@cv";
+const { summary } = CV.basics;
+---
+
+<Section title="À propos">
+  <div id="presentation-content" class="space-y-4">
+    <div class="bg-skin-button-accent/10 p-4 rounded-lg border-l-4 border-skin-hue">
+      {summary.split('\n\n').map(paragraph => (
+  <p class="text-skin-muted leading-relaxed mb-4">{paragraph}</p>
+))}
+
+    </div>
+  </div>
+</Section>
+

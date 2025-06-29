@@ -1,0 +1,596 @@
+---
+import Section from "../Section.astro";
+import { Icon } from "astro-icon/components";
+
+import { projects } from "@cv";
+import { Image } from "astro:assets";
+---
+
+<Section className={Astro.props.className} title="Mes projets">
+  <!-- Navigation par onglets -->
+  <div class="mb-8 border-b border-skin-muted">
+    <nav class="flex space-x-8" role="tablist">
+      <button
+        role="tab"
+        aria-selected="true"
+        aria-controls="university-projects"
+        id="university-tab"
+        class="tab-button active px-1 py-4 text-sm font-medium text-skin-hue border-b-2 border-skin-hue"
+      >
+        <Icon name="mdi:school" class="inline size-4 mr-2" />
+        Projets Universitaires
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="personal-projects"
+        id="personal-tab"
+        class="tab-button px-1 py-4 text-sm font-medium text-skin-muted border-b-2 border-transparent hover:text-skin-base hover:border-skin-muted"
+      >
+        <Icon name="mdi:account" class="inline size-4 mr-2" />
+        Projets Personnels
+      </button>
+    </nav>
+  </div>
+
+  <!-- Contenu des onglets -->
+  <div class="tab-content">
+    <!-- Projets Universitaires -->
+    <div id="university-projects" role="tabpanel" aria-labelledby="university-tab" class="tab-panel active">
+      <div class="space-y-12">
+        {Object.entries(projects.university).map(([sectionName, universityProjects]) => (
+          <div class="university-section">
+            <h4 class="flex items-center gap-2 text-lg font-semibold text-skin-base mb-6">
+              <Icon name="mdi:school" class="size-5 text-skin-hue" />
+              {sectionName}
+            </h4>
+            
+            <!-- Carrousel pour les projets universitaires -->
+            <div class="university-carousel-container relative" data-section="university">
+              <!-- Bouton précédent -->
+              <button 
+                class="carousel-nav-btn carousel-prev absolute left-0 top-1/2 -translate-y-1/2 z-10"
+                data-direction="prev"
+                data-section="university"
+                style={universityProjects.length <= 1 ? "display: none;" : ""}
+              >
+                <Icon name="mdi:chevron-left" class="size-5" />
+              </button>
+              
+              <!-- Conteneur des projets -->
+              <div class="carousel-wrapper overflow-hidden mx-12">
+                <div class="carousel-track flex transition-transform duration-500 ease-out" data-section="university">
+                  {universityProjects.map((project, index) => {
+                    const isBackgroundImage = project.image && project.image?.position === "background";
+                    const isContainerImage = project.image && project.image?.position === "container";
+                    return (
+                      <div class="carousel-slide flex-shrink-0 w-full max-w-md mx-auto px-3">
+                        <div class="university-project-card group relative flex min-h-96 flex-col overflow-hidden rounded-lg bg-skin-button-muted/50 p-6 shadow-sm ring-1 ring-skin-muted hover:shadow-lg transition-all duration-300">
+                          {isBackgroundImage && (
+                            <a data-src={project.image.url} data-fancybox="projects">
+                              <div
+                                class:list={[
+                                  "absolute inset-0 transform bg-cover bg-center bg-no-repeat opacity-20 blur-sm grayscale transition-all duration-300 group-hover:opacity-30",
+                                  project.image.dark ? "dark:hidden" : "",
+                                ]}
+                                style={{ backgroundImage: `url(${project.image.url})` }}
+                              />
+                              {project.image.dark && (
+                                <div
+                                  class="absolute inset-0 hidden transform bg-cover bg-center bg-no-repeat opacity-20 blur-sm grayscale transition-all duration-300 group-hover:opacity-30 dark:block"
+                                  style={{ backgroundImage: `url(${project.image.dark})` }}
+                                />
+                              )}
+                            </a>
+                          )}
+
+                          <div class="relative z-10 flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-skin-hue/10">
+                                <Icon name="mdi:school" class="size-5 text-skin-hue" />
+                              </div>
+                              <div class="flex items-center gap-[6px]">
+                                {project.isActive ? (
+                                  <a
+                                    class="group flex items-center gap-[6px] text-lg decoration-dotted underline-offset-[5px] hover:text-skin-hue hover:underline"
+                                    href={project.url}
+                                    title={`Voir ${project.name}`}
+                                    target="_blank"
+                                  >
+                                    {project.name}
+                                    <span class="text-skin-hue transition ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                                      <Icon name="ri:arrow-up-line" class="rotate-45" />
+                                    </span>
+                                  </a>
+                                ) : (
+                                  <span class="text-lg font-semibold text-skin-base">{project.name}</span>
+                                )}
+                              </div>
+                            </div>
+
+                            {project.github && (
+                              <a
+                                href={project.github}
+                                title="Voir le repository GitHub"
+                                target="_blank"
+                                rel="noopener"
+                                class="opacity-75 transition duration-100 hover:scale-125 hover:opacity-100"
+                              >
+                                <Icon name="mdi:github" width={24} height={24} />
+                              </a>
+                            )}
+                          </div>
+
+                          <!-- Badge de type de projet -->
+                          <div class="relative z-10 mb-3">
+                            <span class="inline-flex items-center px-3 py-1 text-xs font-medium bg-skin-hue/10 text-skin-hue rounded-full">
+                              <Icon name="mdi:school-outline" class="size-3 mr-1" />
+                              {project.type} - {project.year}
+                            </span>
+                          </div>
+
+                          <p class="relative z-10 py-3 text-sm text-skin-base leading-relaxed">
+                            {project.description}
+                          </p>
+
+                          <ul class="relative z-10 mt-1 text-sm text-skin-inverted space-y-1 flex-1">
+                            {project.highlights.map((highlight) => {
+                              return <li class="flex items-start gap-2 text-skin-muted">
+                                <span class="text-skin-hue mt-0.5 flex-shrink-0">•</span>
+                                {highlight}
+                              </li>;
+                            })}
+                          </ul>
+
+                          {isContainerImage && (
+                            <a data-src={project.image.url} data-fancybox="projects" class="relative z-10 mt-4">
+                              <Image
+                                src={project.image.url}
+                                alt={project.name}
+                                width={400}
+                                height={250}
+                                class:list={[
+                                  "w-full h-32 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105",
+                                  project.image.dark ? "dark:hidden" : "",
+                                ]}
+                              />
+                              {project.image.dark && (
+                                <Image
+                                  src={project.image.dark}
+                                  alt={project.name}
+                                  width={400}
+                                  height={250}
+                                  class="w-full h-32 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 hidden dark:block"
+                                />
+                              )}
+                            </a>
+                          )}
+
+                          <!-- Métadonnées du projet -->
+                          <div class="relative z-10 mt-auto pt-4 border-t border-skin-muted/20">
+                            {project.technologies && (
+                              <div class="flex items-center gap-2 text-xs mb-2">
+                                <Icon name="mdi:code-tags" class="size-4 text-skin-muted" />
+                                <div class="flex flex-wrap gap-1">
+                                  {project.technologies.slice(0, 3).map((tech) => (
+                                    <span class="px-2 py-1 bg-skin-button-muted/50 text-skin-muted rounded">
+                                      {tech}
+                                    </span>
+                                  ))}
+                                  {project.technologies.length > 3 && (
+                                    <span class="px-2 py-1 bg-skin-hue/10 text-skin-hue rounded text-xs">
+                                      +{project.technologies.length - 3}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                            <div class="flex items-center justify-between text-xs text-skin-muted">
+                              {project.team && (
+                                <span class="flex items-center gap-1">
+                                  <Icon name="mdi:account-group" class="size-4" />
+                                  {project.team}
+                                </span>
+                              )}
+                              {project.duration && (
+                                <span class="flex items-center gap-1">
+                                  <Icon name="mdi:clock" class="size-4" />
+                                  {project.duration}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+
+                          {isBackgroundImage && (
+                            <p class="absolute bottom-3 right-3 font-mono text-xs text-skin-muted/60">
+                              Cliquez pour agrandir
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              <!-- Bouton suivant -->
+              <button 
+                class="carousel-nav-btn carousel-next absolute right-0 top-1/2 -translate-y-1/2 z-10"
+                data-direction="next"
+                data-section="university"
+                style={universityProjects.length <= 1 ? "display: none;" : ""}
+              >
+                <Icon name="mdi:chevron-right" class="size-5" />
+              </button>
+              
+              <!-- Indicateurs de pagination -->
+              {universityProjects.length > 1 && (
+                <div class="flex justify-center mt-4 space-x-2">
+                  {universityProjects.map((_, index) => (
+                    <button 
+                      class={`pagination-dot w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === 0 
+                          ? 'bg-skin-hue w-6' 
+                          : 'bg-skin-muted/30 hover:bg-skin-muted/50'
+                      }`}
+                      data-section="university"
+                      data-index={index}
+                    ></button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Projets Personnels -->
+    <div id="personal-projects" role="tabpanel" aria-labelledby="personal-tab" class="tab-panel hidden">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {projects.personal.map((project) => {
+          const isBackgroundImage = project.image && project.image?.position === "background";
+          const isContainerImage = project.image && project.image?.position === "container";
+          return (
+            <div class="personal-project-card group relative flex min-h-80 flex-col overflow-hidden rounded-lg bg-skin-button-muted/50 p-6 shadow-sm ring-1 ring-skin-muted hover:shadow-lg transition-all duration-300">
+              {isBackgroundImage && (
+                <a data-src={project.image.url} data-fancybox="projects">
+                  <div
+                    class:list={[
+                      "absolute inset-0 transform bg-cover bg-center bg-no-repeat opacity-20 blur-sm grayscale transition-all duration-300 group-hover:opacity-30",
+                      project.image.dark ? "dark:hidden" : "",
+                    ]}
+                    style={{ backgroundImage: `url(${project.image.url})` }}
+                  />
+                  {project.image.dark && (
+                    <div
+                      class="absolute inset-0 hidden transform bg-cover bg-center bg-no-repeat opacity-20 blur-sm grayscale transition-all duration-300 group-hover:opacity-30 dark:block"
+                      style={{ backgroundImage: `url(${project.image.dark})` }}
+                    />
+                  )}
+                </a>
+              )}
+
+              <div class="relative z-10 flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-skin-hue/10">
+                    <Icon name="mdi:rocket" class="size-5 text-skin-hue" />
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <div class="flex items-center gap-[6px]">
+                      {project.isActive ? (
+                        <a
+                          class="group flex items-center gap-[6px] text-lg decoration-dotted underline-offset-[5px] hover:text-skin-hue hover:underline"
+                          href={project.url}
+                          title={`Voir ${project.name}`}
+                          target="_blank"
+                        >
+                          {project.name}
+                          <span class="text-skin-hue transition ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                            <Icon name="ri:arrow-up-line" class="rotate-45" />
+                          </span>
+                        </a>
+                      ) : (
+                        <span class="text-lg font-semibold text-skin-base">{project.name}</span>
+                      )}
+                    </div>
+                    {!project.isActive && project.status && (
+                      <div class="flex items-center gap-2">
+                       
+                        <span class="text-xs text-skin-muted/70 italic"></span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {project.github && (
+                  <a
+                    href={project.github}
+                    title="Voir le repository GitHub"
+                    target="_blank"
+                    rel="noopener"
+                    class="opacity-75 transition duration-100 hover:scale-125 hover:opacity-100"
+                  >
+                    <Icon name="mdi:github" width={24} height={24} />
+                  </a>
+                )}
+              </div>
+
+              <p class="relative z-10 py-3 text-sm text-skin-base leading-relaxed">
+                {project.description}
+              </p>
+
+              <ul class="relative z-10 mt-1 text-sm text-skin-inverted space-y-1">
+                {project.highlights.map((highlight) => {
+                  return <li class="flex items-start gap-2 text-skin-muted">
+                    <span class="text-skin-hue mt-0.5 flex-shrink-0">•</span>
+                    {highlight}
+                  </li>;
+                })}
+              </ul>
+
+              {project.technologies && (
+                <div class="relative z-10 mt-4 pt-4 border-t border-skin-muted/20">
+                  <div class="flex items-center gap-2 text-xs">
+                    <Icon name="mdi:code-tags" class="size-4 text-skin-muted" />
+                    <div class="flex flex-wrap gap-1">
+                      {project.technologies.map((tech) => (
+                        <span class="px-2 py-1 bg-skin-button-muted/50 text-skin-muted rounded">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {isContainerImage && (
+                <a data-src={project.image.url} data-fancybox="projects" class="relative z-10">
+                  <Image
+                    src={project.image.url}
+                    alt={project.name}
+                    width={800}
+                    height={1080}
+                    class:list={[
+                      "mt-4 max-w-full rounded-lg transition-transform duration-300 group-hover:scale-105",
+                      project.image.dark ? "dark:hidden" : "",
+                    ]}
+                  />
+                  {project.image.dark && (
+                    <Image
+                      src={project.image.dark}
+                      alt={project.name}
+                      width={800}
+                      height={1080}
+                      class="mt-4 hidden max-w-full rounded-lg transition-transform duration-300 group-hover:scale-105 dark:block"
+                    />
+                  )}
+                </a>
+              )}
+
+              {isBackgroundImage && (
+                <p class="absolute bottom-3 right-3 font-mono text-xs text-skin-muted/60">
+                  Cliquez pour agrandir
+                </p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</Section>
+
+<script>
+  import { Fancybox } from "@fancyapps/ui";
+  
+  // Initialiser Fancybox
+  Fancybox.bind('[data-fancybox="projects"]', { hideScrollbar: false });
+
+  // Gestion des onglets
+  function initTabs() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('aria-controls');
+        
+        // Désactiver tous les onglets
+        tabButtons.forEach(btn => {
+          btn.classList.remove('active', 'text-skin-hue', 'border-skin-hue');
+          btn.classList.add('text-skin-muted', 'border-transparent');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        
+        // Masquer tous les panneaux
+        tabPanels.forEach(panel => {
+          panel.classList.add('hidden');
+          panel.classList.remove('active');
+        });
+        
+        // Activer l'onglet sélectionné
+        button.classList.add('active', 'text-skin-hue', 'border-skin-hue');
+        button.classList.remove('text-skin-muted', 'border-transparent');
+        button.setAttribute('aria-selected', 'true');
+        
+        // Afficher le panneau correspondant
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.remove('hidden');
+          targetPanel.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // Gestion du carrousel universitaire
+  class UniversityCarousel {
+    constructor() {
+      this.currentIndex = 0;
+      this.track = document.querySelector(`[data-section="university"].carousel-track`);
+      this.slides = this.track ? this.track.querySelectorAll('.carousel-slide') : [];
+      this.totalSlides = this.slides.length;
+      
+      this.prevBtn = document.querySelector(`[data-section="university"][data-direction="prev"]`);
+      this.nextBtn = document.querySelector(`[data-section="university"][data-direction="next"]`);
+      this.dots = document.querySelectorAll(`[data-section="university"].pagination-dot`);
+      
+      this.init();
+    }
+    
+    init() {
+      if (!this.track || this.totalSlides <= 1) return;
+      
+      // Navigation buttons
+      this.prevBtn?.addEventListener('click', () => this.prev());
+      this.nextBtn?.addEventListener('click', () => this.next());
+      
+      // Pagination dots
+      this.dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => this.goTo(index));
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') this.prev();
+        if (e.key === 'ArrowRight') this.next();
+      });
+      
+      this.updateCarousel();
+    }
+    
+    prev() {
+      this.currentIndex = this.currentIndex > 0 ? this.currentIndex - 1 : this.totalSlides - 1;
+      this.updateCarousel();
+    }
+    
+    next() {
+      this.currentIndex = this.currentIndex < this.totalSlides - 1 ? this.currentIndex + 1 : 0;
+      this.updateCarousel();
+    }
+    
+    goTo(index) {
+      this.currentIndex = index;
+      this.updateCarousel();
+    }
+    
+    updateCarousel() {
+      if (!this.track) return;
+      
+      const translateX = -this.currentIndex * 100;
+      this.track.style.transform = `translateX(${translateX}%)`;
+      
+      // Update pagination dots
+      this.dots.forEach((dot, index) => {
+        dot.classList.toggle('bg-skin-hue', index === this.currentIndex);
+        dot.classList.toggle('w-6', index === this.currentIndex);
+        dot.classList.toggle('bg-skin-muted/30', index !== this.currentIndex);
+      });
+    }
+  }
+
+  // Initialisation
+  function initProjects() {
+    initTabs();
+    
+    // Initialiser le carrousel universitaire
+    new UniversityCarousel();
+  }
+
+  // Initialiser au chargement de la page
+  document.addEventListener('DOMContentLoaded', initProjects);
+  
+  // Réinitialiser après navigation (pour les SPAs)
+  document.addEventListener('astro:after-swap', initProjects);
+</script>
+
+<style>
+  .tab-button {
+    transition: all 0.3s ease;
+  }
+  
+  .tab-button:hover {
+    @apply text-skin-base border-skin-muted;
+  }
+  
+  .tab-panel {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .university-project-card {
+    border-left: 4px solid theme('colors.skin.hue');
+  }
+  
+  .personal-project-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .university-project-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .university-section {
+    position: relative;
+  }
+  
+  .university-section::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, theme('colors.skin.hue'), transparent);
+  }
+
+  /* Styles du carrousel */
+  .carousel-nav-btn {
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-skin-button-muted/80 text-skin-base hover:bg-skin-button-muted transition-all duration-300 hover:scale-110 backdrop-blur-sm;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .carousel-nav-btn:hover {
+    @apply shadow-lg;
+  }
+
+  .carousel-wrapper {
+    @apply relative;
+  }
+
+  .carousel-track {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .carousel-slide {
+    @apply transition-all duration-300;
+  }
+
+  .pagination-dot {
+    @apply cursor-pointer transition-all duration-300;
+  }
+
+  .pagination-dot:hover {
+    @apply bg-skin-muted/50;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .carousel-wrapper {
+      @apply mx-8;
+    }
+    
+    .carousel-nav-btn {
+      @apply w-8 h-8;
+    }
+    
+    .university-project-card {
+      min-height: 20rem;
+    }
+  }
+</style>

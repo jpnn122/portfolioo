@@ -1,0 +1,220 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+
+import About from "@/components/sections/About.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Projects from "@/components/sections/Projects.astro";
+import Skills from "@/components/sections/Skills.astro";
+import Experience from "@/components/sections/Experience.astro";
+import Tail from "@/components/sections/Tail.astro";
+import KeyboardManager from "@/components/KeyboardManager.astro";
+import ThemeSwitch from "@/components/ThemeSwitch.astro";
+import Ambitions from "@/components/sections/Ambitions.astro";
+import Talents from "@/components/sections/Talents.astro";
+import ScrollIndicator from "@/components/ScrollIndicator.astro";
+
+import CV, { basics } from "@cv";
+import Education from "@/components/sections/Education.astro";
+const { name, label } = basics;
+
+enum PageLayout {
+  SingleColumn = "single-column",
+  TwoColumn = "two-column",
+  Scroll = "scroll",
+}
+---
+
+<Layout title={`${name}'s' Portfolio - ${label}`}>
+  <Header />
+  
+  <!-- Indicateur de scroll stylé -->
+  <ScrollIndicator />
+  
+  <!-- Layout principal avec partie gauche fixe et partie droite défilante -->
+  <div class="flex min-h-screen pt-20">
+    <!-- Partie gauche fixe -->
+    <div class="fixed left-0 top-20 w-1/3 h-screen overflow-y-auto bg-skin-fill/80 backdrop-blur-md border-r border-skin-hue/30 p-8 shadow-xl flex flex-col justify-center pt-24">
+      <div class="space-y-6 max-w-md">
+        <div id="hero-section">
+          <Hero />
+        </div>
+        <ThemeSwitch />
+      </div>
+    </div>
+
+    <!-- Partie droite défilante -->
+    <div class="ml-[33.333333%] w-2/3 min-h-screen overflow-y-auto" id="right-panel">
+      <div class="p-8 space-y-12">
+        <div id="presentation">
+          <About />
+        </div>
+        
+        <div id="competences">
+          <Skills />
+        </div>
+        
+        <div id="projets">
+          <Projects />
+        </div>
+        
+        <div id="experience">
+          <Experience />
+        </div>
+        
+        <div id="talents">
+          <Talents />
+        </div>
+        
+        <div id="formation">
+          <Education />
+        </div>
+        
+        <div id="ambitions">
+          <Ambitions />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <Tail />
+  <KeyboardManager />
+</Layout>
+
+<style>
+  /* Effet de verre dépoli pour la partie gauche */
+  .fixed {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--color-fill-rgb), 0.85) 0%,
+      rgba(var(--color-fill-rgb), 0.75) 50%,
+      rgba(var(--color-fill-rgb), 0.8) 100%
+    );
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    border-right: 1px solid rgba(var(--color-hue-rgb), 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Amélioration pour le mode sombre */
+  :global(.dark) .fixed {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--color-fill-rgb), 0.9) 0%,
+      rgba(var(--color-fill-rgb), 0.8) 50%,
+      rgba(var(--color-fill-rgb), 0.85) 100%
+    );
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Responsive pour mobile */
+  @media (max-width: 768px) {
+    .flex {
+      flex-direction: column;
+    }
+    
+    .fixed {
+      position: relative !important;
+      width: 100% !important;
+      height: auto !important;
+      background: var(--color-fill) !important;
+      backdrop-filter: none !important;
+      box-shadow: none !important;
+    }
+    
+    .ml-\[33\.333333\%\] {
+      margin-left: 0 !important;
+      width: 100% !important;
+    }
+  }
+  
+  /* Scrollbar personnalisée pour la partie gauche */
+  .fixed::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .fixed::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .fixed::-webkit-scrollbar-thumb {
+    background: var(--color-hue);
+    border-radius: 2px;
+    opacity: 0.3;
+  }
+  
+  .fixed::-webkit-scrollbar-thumb:hover {
+    opacity: 0.6;
+  }
+</style>
+
+<script>
+  const carousel = document.querySelector("#carousel");
+
+  if (carousel) {
+    let isScrolling = true;
+    let scrollSpeed = 2;
+    let direction = 1;
+    let pauseTimeout: NodeJS.Timeout;
+
+    const startAutoScroll = () => {
+      const scroll = () => {
+        if (!isScrolling) return;
+
+        if (
+          //@ts-ignore
+          carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth ||
+          carousel.scrollLeft <= 0
+        ) {
+          direction *= -1;
+          isScrolling = false;
+          clearTimeout(pauseTimeout);
+          pauseTimeout = setTimeout(() => {
+            isScrolling = true;
+            requestAnimationFrame(scroll);
+          }, 1000);
+        }
+
+        carousel.scrollLeft += scrollSpeed * direction;
+        requestAnimationFrame(scroll);
+      };
+
+      requestAnimationFrame(scroll);
+    };
+
+    const stopAutoScroll = () => {
+      isScrolling = false;
+    };
+
+    const handleUserInteraction = () => {
+      stopAutoScroll();
+      setTimeout(() => {
+        isScrolling = true;
+      }, 500);
+    };
+
+    startAutoScroll();
+
+    carousel.addEventListener("mouseenter", stopAutoScroll);
+    carousel.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        isScrolling = true;
+      }, 100);
+    });
+
+    carousel.addEventListener("scroll", handleUserInteraction);
+  }
+
+  // Gestion du scroll fluide
+  document.addEventListener('astro:page-load', () => {
+    const rightPanel = document.getElementById('right-panel');
+    if (rightPanel) {
+      // Scroll fluide personnalisé
+      rightPanel.style.scrollBehavior = 'smooth';
+    }
+  });
+</script> 

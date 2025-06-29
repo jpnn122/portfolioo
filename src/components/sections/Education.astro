@@ -1,0 +1,141 @@
+---
+import Section from '@/components/Section.astro'
+
+import { education } from '@cv'
+import { certificates } from '@cv'
+---
+
+<Section title="Formation">
+  <div id="formation" class="space-y-6">
+    
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="absolute left-6 top-0 bottom-0 w-px bg-skin-hue/30"></div>
+      
+      <div class="space-y-8">
+        <!-- BUT Informatique -->
+        <div class="relative">
+          <div class="flex items-start">
+            <!-- Timeline dot -->
+            <div class="absolute left-4 w-4 h-4 bg-skin-hue rounded-full border-4 border-skin-fill shadow-lg"></div>
+            
+            <!-- Content -->
+            <div class="ml-12 bg-skin-button-accent/10 p-6 rounded-lg border-l-4 border-skin-hue w-full">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-skin-base">BUT Informatique</h4>
+                  <p class="text-skin-hue font-medium">Université Sorbonne Paris Nord - IUT de Villetaneuse</p>
+                  <p class="text-sm text-skin-muted">Parcours : Réalisation d'applications - Conception et développement</p>
+                </div>
+                <span class="text-sm text-skin-muted bg-skin-hue/10 px-3 py-1 rounded-full mt-2 md:mt-0">
+                  2023 - 2026
+                </span>
+              </div>
+
+              <!-- Sous-parties BUT -->
+              <div class="space-y-4 mt-4">
+                <div class="grid md:grid-cols-3 gap-4">
+                  <!-- BUT 1 -->
+                  <div class="bg-skin-fill p-4 rounded-lg border border-green-200">
+                    <div class="flex items-center mb-2">
+                      <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                      <h5 class="text-base font-semibold text-skin-base">BUT 1</h5>
+                      <span class="ml-auto text-xs text-green-600 bg-green-100 px-2 py-1 rounded">Validé</span>
+                    </div>
+                    <p class="text-sm text-skin-muted">2023-2024</p>
+                    <p class="text-xs text-skin-muted mt-1">Fondamentaux de l'informatique</p>
+                  </div>
+
+                  <!-- BUT 2 -->
+                  <div class="bg-skin-fill p-4 rounded-lg border border-blue-200">
+                    <div class="flex items-center mb-2">
+                      <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                      <h5 class="text-base font-semibold text-skin-base">BUT 2</h5>
+                      <span class="ml-auto text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">En cours</span>
+                    </div>
+                    <p class="text-sm text-skin-muted">2024-2025</p>
+                    <p class="text-xs text-skin-muted mt-1">Approfondissement et spécialisation</p>
+                  </div>
+
+                  <!-- BUT 3 -->
+                  <div class="bg-skin-fill p-4 rounded-lg border border-orange-200">
+                    <div class="flex items-center mb-2">
+                      <div class="w-3 h-3 bg-orange-500 rounded-full mr-2"></div>
+                      <h5 class="text-base font-semibold text-skin-base">BUT 3</h5>
+                      <span class="ml-auto text-xs text-orange-600 bg-orange-100 px-2 py-1 rounded">Prévu</span>
+                    </div>
+                    <p class="text-sm text-skin-muted">2025-2026</p>
+                    <p class="text-xs text-skin-muted mt-1">Alternance et professionnalisation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baccalauréat -->
+        <div class="relative">
+          <div class="flex items-start">
+            <!-- Timeline dot -->
+            <div class="absolute left-4 w-4 h-4 bg-skin-hue rounded-full border-4 border-skin-fill shadow-lg"></div>
+            
+            <!-- Content -->
+            <div class="ml-12 bg-skin-button-accent/10 p-6 rounded-lg border-l-4 border-skin-hue w-full">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-skin-base">Baccalauréat (mention assez bien)</h4>
+                  <p class="text-skin-hue font-medium">Lycée polyvalent Angela Davis - Saint-Denis</p>
+                  <p class="text-sm text-skin-muted">Spécialités : Mathématiques, physique-chimie</p>
+                  <p class="text-sm text-skin-muted">Options : Mathématiques expertes</p>
+                </div>
+                <span class="text-sm text-skin-muted bg-skin-hue/10 px-3 py-1 rounded-full mt-2 md:mt-0">
+                  2020 - 2023
+                </span>
+              </div>
+              
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-green-600 font-medium">Diplôme obtenu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brevet des collèges -->
+        <div class="relative">
+          <div class="flex items-start">
+            <!-- Timeline dot -->
+            <div class="absolute left-4 w-4 h-4 bg-skin-hue rounded-full border-4 border-skin-fill shadow-lg"></div>
+            
+            <!-- Content -->
+            <div class="ml-12 bg-skin-button-accent/10 p-6 rounded-lg border-l-4 border-skin-hue w-full">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-skin-base">Brevet des collèges (mention très bien)</h4>
+                  <p class="text-skin-hue font-medium">Collège Pierre de Geyter - Saint-Denis</p>
+                </div>
+                <span class="text-sm text-skin-muted bg-skin-hue/10 px-3 py-1 rounded-full mt-2 md:mt-0">
+                  2016 - 2020
+                </span>
+              </div>
+              
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-green-600 font-medium">Diplôme obtenu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objectif futur -->
+      <div class="mt-8 border-l-4 border-skin-hue pl-4">
+        <h5 class="text-base font-semibold text-skin-base mb-2">🎯 Objectif futur</h5>
+        <p class="text-sm text-skin-muted">
+          Poursuite d'études vers un <strong>Master en Informatique</strong> ou une <strong>École d'ingénieur</strong> 
+          pour atteindre un niveau BAC +5, avec spécialisation en cybersécurité ou administration de systèmes & réseaux.
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>

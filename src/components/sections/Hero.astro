@@ -1,0 +1,206 @@
+---
+import { basics } from '@cv'
+import Section from '@/components/Section.astro'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+const { name, label, age, image, location, profiles, email } = basics
+const { city, region, address } = location
+---
+
+<Section>
+  <div class='flex flex-col gap-8'>
+    <figure class='relative w-fit print:hidden'>
+      <Image class='shadow-skin-hues shadow-lg' height={600} width={600} src={image} alt={name} />
+      <div class='pointer-events-none absolute -inset-2'>
+        <div
+          class='absolute -inset-y-8 right-0 w-px bg-skin-hue/50 [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
+        </div>
+        <div
+          class='absolute -inset-y-8 left-0 w-px bg-skin-hue/50 [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
+        </div>
+        <div
+          class='absolute -inset-x-8 bottom-0 h-px bg-skin-hue/50 [mask-image:linear-gradient(to_left,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
+        </div>
+        <div
+          class='absolute -inset-x-8 top-0 h-px bg-skin-hue/50 [mask-image:linear-gradient(to_left,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
+        </div>
+      </div>
+    </figure>
+    
+    <div class='info text-left'>
+      <h1>{name}</h1>
+      <h2>{label}</h2>
+      {age && (
+        <div class='flex items-center gap-2 pt-1 text-sm text-skin-muted'>
+          <Icon class='print:hidden' name='mdi:calendar' width={20} height={20} />
+          {age}
+        </div>
+      )}
+      <div class='flex items-center gap-2 pt-2 text-sm text-skin-muted'>
+        <Icon class='print:hidden' name='mdi:map-marker' width={20} height={20} />
+        {address && address}{address && region && ', '}{region}
+      </div>
+      <footer class='print'>
+        {email}
+      </footer>
+      <footer class='print:hidden'>
+        <div class="social-icons-container">
+          {
+            profiles.map(({ network, url, icon }) => {
+              return (
+                <a
+                  href={url}
+                  title={`Visiter mon profil ${network}`}
+                  target='_blank'
+                  class={`social-icon social-icon-${network.toLowerCase()}`}
+                  rel='noopener noreferrer'>
+                  <Icon class='print:hidden' name={icon} width={64} height={64} />
+                </a>
+              )
+            })
+          }
+        </div>
+      </footer>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .info {
+    @apply flex flex-col gap-3 print:gap-0;
+  }
+
+  h1 {
+    @apply text-3xl font-bold print:text-3xl text-left;
+  }
+
+  h2 {
+    @apply text-balance text-base text-skin-muted print:text-lg text-left;
+  }
+
+  img {
+    @apply aspect-square w-48 rounded-2xl bg-cover;
+  }
+
+  span {
+    @apply flex items-center gap-1 text-xs text-skin-hue;
+  }
+
+  footer {
+    @apply mt-4 text-sm;
+  }
+
+  .social-icons-container {
+    @apply flex flex-wrap gap-6 mt-4;
+  }
+
+  .social-icon {
+    @apply transition-all duration-300 ease-in-out hover:scale-110 hover:drop-shadow-lg;
+  }
+
+  .social-icon:hover {
+    @apply transform scale-125;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  /* Couleurs spécifiques pour chaque logo */
+  .social-icon-linkedin {
+    color: #0077B5 !important; /* Bleu LinkedIn officiel avec !important */
+  }
+
+  .social-icon-linkedin:hover {
+    color: #005885 !important;
+    filter: drop-shadow(0 4px 12px rgba(0, 119, 181, 0.5));
+  }
+
+  .social-icon-github {
+    @apply text-[#333333] dark:text-[#FFFFFF]; /* Noir/Blanc selon le thème */
+  }
+
+  .social-icon-github:hover {
+    filter: drop-shadow(0 4px 12px rgba(51, 51, 51, 0.5));
+  }
+
+  :global(.dark) .social-icon-github:hover {
+    filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
+  }
+
+  .social-icon-cv {
+    @apply text-[#DC2626]; /* Rouge pour le CV */
+  }
+
+  .social-icon-cv:hover {
+    filter: drop-shadow(0 4px 12px rgba(220, 38, 38, 0.5));
+  }
+
+  footer a,
+  footer button {
+    @apply inline-flex size-8 items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent hover:text-skin-inverted;
+  }
+
+  @media (width <= 700px) {
+    .container {
+      flex-direction: column-reverse;
+    }
+
+    .info {
+      @apply pr-0 md:items-center md:justify-center;
+    }
+
+    figure {
+      @apply flex md:items-center md:justify-center;
+    }
+
+    h2 {
+      text-wrap: balance;
+    }
+
+    figure {
+      @apply md:mx-auto;
+    }
+  }
+</style>
+
+<script>
+  const select = document.getElementById('themeSwitch') as HTMLSelectElement
+  const theme = localStorage.getItem('theme')
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+
+  if (theme !== null) {
+    select.value = theme
+  } else {
+    select.value = systemTheme
+  }
+
+  function updateTheme(value: string) {
+    const theme = value === 'system' ? systemTheme : value
+    document.documentElement.classList.remove('light', 'dark')
+    document.documentElement.classList.add(theme)
+    localStorage.setItem('theme', value)
+  }
+
+  updateTheme(select.value)
+
+  select.addEventListener('change', (event: Event) => {
+    const select = event.target as HTMLSelectElement
+    updateTheme(select.value)
+  })
+
+  // Deshabilitar modo oscuro al imprimir
+  window.addEventListener('beforeprint', () => {
+    document.documentElement.classList.remove('dark')
+  })
+
+  // Restaurar el modo oscuro después de imprimir
+  window.addEventListener('afterprint', () => {
+    if (
+      select.value === 'dark' ||
+      (select.value === 'system' && systemTheme === 'dark')
+    ) {
+      document.documentElement.classList.add('dark')
+    }
+  })
+</script>

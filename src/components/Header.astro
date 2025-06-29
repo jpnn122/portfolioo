@@ -1,0 +1,93 @@
+---
+// Header avec navigation selon les consignes
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-skin-fill/98 backdrop-blur-md border-b-2 border-skin-hue/30 shadow-lg">
+  <nav class="max-w-7xl mx-auto px-4 py-5">
+    <div class="flex items-center justify-between">
+      <div class="text-xl font-bold text-skin-base">
+        Portfolio - Syphax BENCHALAL
+      </div>
+      
+      <ul class="hidden md:flex items-center space-x-6 text-base pr-4">
+        <li><a href="#presentation" class="nav-link">À propos</a></li>
+        <li><a href="#competences" class="nav-link">Compétences</a></li>
+        <li><a href="#projets" class="nav-link">Projets</a></li>
+        <li><a href="#experience" class="nav-link">Expériences</a></li>
+        <li><a href="#talents" class="nav-link">Qualités</a></li>
+        <li><a href="#formation" class="nav-link">Formation</a></li>
+        <li><a href="#ambitions" class="nav-link">Ambitions</a></li>
+      </ul>
+
+      <!-- Menu burger pour mobile -->
+      <button class="md:hidden burger-menu" id="burger-menu">
+        <span class="block w-7 h-0.5 bg-skin-base mb-1.5"></span>
+        <span class="block w-7 h-0.5 bg-skin-base mb-1.5"></span>
+        <span class="block w-7 h-0.5 bg-skin-base"></span>
+      </button>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="md:hidden mobile-menu hidden mt-5 pb-5" id="mobile-menu">
+      <ul class="space-y-4 text-base">
+        <li><a href="#presentation" class="nav-link block">À propos</a></li>
+        <li><a href="#competences" class="nav-link block">Compétences</a></li>
+        <li><a href="#projets" class="nav-link block">Projets</a></li>
+        <li><a href="#experience" class="nav-link block">Expériences</a></li>
+        <li><a href="#talents" class="nav-link block">Qualités</a></li>
+        <li><a href="#formation" class="nav-link block">Formation</a></li>
+        <li><a href="#ambitions" class="nav-link block">Ambitions</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .nav-link {
+    @apply text-skin-base font-medium hover:text-skin-hue transition-all duration-300 cursor-pointer px-3 py-2 rounded-md hover:bg-skin-hue/10;
+  }
+  
+  .nav-link:hover {
+    @apply text-skin-hue font-semibold transform scale-105;
+  }
+  
+  header {
+    @apply shadow-skin-hue/20;
+  }
+</style>
+
+<script>
+  // Menu burger toggle
+  const burgerMenu = document.getElementById('burger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (burgerMenu && mobileMenu) {
+    burgerMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Smooth scroll pour les liens de navigation
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        const headerHeight = 100; // Hauteur du header fixe augmentée
+        const targetPosition = targetElement.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Fermer le menu mobile après clic
+        if (mobileMenu) {
+          mobileMenu.classList.add('hidden');
+        }
+      }
+    });
+  });
+</script> 
