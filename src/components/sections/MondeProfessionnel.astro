@@ -2,57 +2,67 @@
 import Section from '@/components/Section.astro'
 ---
 
-<Section>
+<Section title="Monde Professionnel">
   <div id="monde-professionnel" class="space-y-6">
-    <h2 class="text-2xl font-bold text-skin-base mb-6">Découverte du monde professionnel</h2>
+    <p class="text-sm text-skin-muted leading-relaxed mb-4">
+      Mon parcours en BUT Informatique, couronné par mes stages chez SNM Cloud et Scheidt & Bachmann, a été un catalyseur de ma transition d'étudiant à professionnel de la cybersécurité.
+    </p>
     
     <div class="space-y-6">
-      <div class="bg-skin-button-accent/10 p-4 rounded-lg">
-        <h3 class="text-lg font-semibold text-skin-base mb-3">🏢 Environnement de travail découvert</h3>
-        <p class="text-skin-muted leading-relaxed">
-          Grâce à mes projets académiques et mes recherches sur le secteur informatique, j'ai pu appréhender 
-          la diversité des environnements de travail dans le domaine du développement : startups dynamiques, 
-          grandes entreprises structurées, ESN (Entreprises de Services du Numérique), et équipes en télétravail.
+      <!-- Bilan du Stage BUT 3 & MCO -->
+      <div class="bg-skin-button-accent/10 p-5 rounded-lg border-l-4 border-skin-hue transition-transform duration-300 hover:scale-[1.01]">
+        <h3 class="text-lg font-semibold text-skin-base mb-3 flex items-center gap-2">
+          🏢 Bilan du Stage BUT 3 (Scheidt & Bachmann)
+        </h3>
+        <p class="text-skin-muted text-sm leading-relaxed">
+          Chez Scheidt & Bachmann, j'ai été immergé dans le <strong>Maintien en Condition Opérationnelle (MCO)</strong> et le durcissement (hardening) d'infrastructures critiques. Ma principale réussite a été la conception et la structuration d'un laboratoire de tests virtualisé et isolé (VLANs), permettant de valider les correctifs système avant leur déploiement. Ce stage a donné du sens à mes apprentissages académiques en les confrontant aux contraintes réelles de disponibilité et d'intégrité de systèmes industriels.
         </p>
       </div>
 
-      <div class="bg-skin-button-accent/10 p-4 rounded-lg">
-        <h3 class="text-lg font-semibold text-skin-base mb-3">🤝 Culture d'entreprise et collaboration</h3>
-        <p class="text-skin-muted leading-relaxed">
-          J'ai découvert l'importance de la <strong>culture d'entreprise</strong> dans le secteur tech : 
-          méthodes agiles, code reviews, pair programming, et l'esprit collaboratif qui caractérise 
-          les équipes de développement. Cette approche collaborative correspond parfaitement à ma 
-          personnalité et à ma façon de travailler.
+      <!-- Dynamique d'équipe et Réunions -->
+      <div class="bg-skin-button-accent/10 p-5 rounded-lg border-l-4 border-skin-hue transition-transform duration-300 hover:scale-[1.01]">
+        <h3 class="text-lg font-semibold text-skin-base mb-3 flex items-center gap-2">
+          🤝 Culture d'Entreprise & Dynamique d'Équipe
+        </h3>
+        <p class="text-skin-muted text-sm leading-relaxed">
+          Intégré au sein d'une équipe d'administrateurs systèmes et réseaux chevronnés, j'ai découvert une culture d'entreprise axée sur la rigueur et la transmission du savoir. J'ai participé activement aux <strong>réunions hebdomadaires</strong> de suivi des incidents et de planification de projets de sécurité. La communication technique transparente et le partage constant de documentation ont été cruciaux pour assurer la cohérence de nos actions de sécurité.
         </p>
       </div>
 
-      <div class="bg-skin-button-accent/10 p-4 rounded-lg">
-        <h3 class="text-lg font-semibold text-skin-base mb-3">👥 Apprentissage du travail en équipe</h3>
-        <p class="text-skin-muted leading-relaxed">
-          Mes projets de groupe en BUT m'ont permis de développer mes compétences en <strong>travail collaboratif</strong> : 
-          gestion de versions avec Git, répartition des tâches, communication technique, et résolution collective 
-          de problèmes. J'ai appris l'importance de la documentation et du partage de connaissances.
+      <!-- Outils et Technologies -->
+      <div class="bg-skin-button-accent/10 p-5 rounded-lg border-l-4 border-skin-hue transition-transform duration-300 hover:scale-[1.01]">
+        <h3 class="text-lg font-semibold text-skin-base mb-3 flex items-center gap-2">
+          🛠️ Outils & Méthodes du Quotidien
+        </h3>
+        <p class="text-skin-muted text-sm leading-relaxed mb-3">
+          Le quotidien opérationnel exigeait la maîtrise d'outils professionnels pour maintenir et sécuriser nos accès :
         </p>
-      </div>
-
-      <div class="bg-skin-button-accent/10 p-4 rounded-lg">
-        <h3 class="text-lg font-semibold text-skin-base mb-3">🔍 Découverte de moi-même</h3>
-        <p class="text-skin-muted leading-relaxed">
-          Cette exploration du monde professionnel m'a révélé mes points forts : ma capacité d'adaptation, 
-          mon goût pour l'apprentissage continu, et ma facilité à travailler en équipe. J'ai également 
-          identifié mes axes d'amélioration, notamment en communication et en gestion de projet.
-        </p>
-      </div>
-
-      <div class="border-l-4 border-skin-hue pl-4">
-        <h4 class="font-semibold text-skin-base mb-2">🎯 Aspects qui m'ont particulièrement marqué :</h4>
-        <ul class="text-sm text-skin-muted space-y-1">
-          <li>• L'importance de la veille technologique constante</li>
-          <li>• La nécessité de bien documenter son code</li>
-          <li>• L'esprit d'entraide et de partage dans les équipes tech</li>
-          <li>• La diversité des projets et des défis techniques</li>
-          <li>• L'équilibre entre autonomie et collaboration</li>
+        <ul class="text-sm text-skin-muted space-y-2 pl-4 list-disc">
+          <li><strong>TeamViewer Tensor :</strong> Déploiement et sécurisation des accès distants pour les interventions clients.</li>
+          <li><strong>Hyperviseurs (VirtualBox / VMware) :</strong> Modélisation et maquettage des réseaux clients pour valider le comportement des correctifs.</li>
+          <li><strong>SSO & GPO :</strong> Optimisation de l'authentification unique et durcissement des politiques de groupe Active Directory.</li>
+          <li><strong>Normes & Chartes de Sécurité :</strong> Rédaction de directives de sécurité pour formaliser les bonnes pratiques numériques.</li>
         </ul>
+      </div>
+
+      <!-- Découverte de soi -->
+      <div class="bg-skin-button-accent/10 p-5 rounded-lg border-l-4 border-skin-hue transition-transform duration-300 hover:scale-[1.01]">
+        <h3 class="text-lg font-semibold text-skin-base mb-3 flex items-center gap-2">
+          🔍 Ce que j'ai découvert de moi-même
+        </h3>
+        <p class="text-skin-muted text-sm leading-relaxed">
+          Le stage a révélé ma capacité à <strong>m'approprier rapidement des sujets complexes</strong> en totale autonomie, comme le durcissement AD ou la segmentation VLAN. J'ai également réalisé que j'apprécie grandement le rôle de vulgarisation : rédiger la charte de sécurité m'a appris à traduire des contraintes cyber complexes en directives intelligibles et applicables par tous les collaborateurs.
+        </p>
+      </div>
+
+      <!-- Fierté -->
+      <div class="bg-gradient-to-r from-skin-hue/15 to-skin-button-accent/10 p-5 rounded-lg border-l-4 border-skin-hue transition-transform duration-300 hover:scale-[1.01]">
+        <h3 class="text-lg font-semibold text-skin-base mb-3 flex items-center gap-2">
+          🏆 Ce dont je suis le plus fier
+        </h3>
+        <p class="text-skin-muted text-sm leading-relaxed">
+          Je suis particulièrement fier de la mise en place complète du <strong>laboratoire de tests isolé</strong>. Voir cet environnement de virtualisation opérationnel, segmenté par VLANs, et l'utiliser avec succès pour valider des mises à jour sans aucun impact sur le réseau de production de Scheidt & Bachmann a été extrêmement gratifiant. Cela a concrétisé mon utilité directe pour la sécurité de l'entreprise.
+        </p>
       </div>
     </div>
   </div>

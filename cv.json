@@ -229,6 +229,50 @@
     "university": {
       "Projets Universitaires": [
         {
+          "name": "SAÉ S6 - Déploiement et automatisation d'un SOC",
+          "year": "BUT 3",
+          "type": "Projet SAÉ",
+          "image": {
+            "url": "/images/sae-s6-soc.png",
+            "position": "container"
+          },
+          "isActive": true,
+          "description": "Mise en place et automatisation d'un SOC (Security Operations Center) à l'aide d'outils SIEM open-source pour la détection et la réponse aux menaces en temps réel.",
+          "highlights": [
+            "🛡️ Déploiement de Wazuh et configuration d'agents de supervision sur des hôtes Windows/Linux",
+            "📊 Centralisation et indexation des journaux d'événements à l'aide d'une pile ELK (Elasticsearch, Kibana)",
+            "⚙️ Automatisation des mécanismes de réponse aux alertes critiques",
+            "🚨 Création de dashboards dynamiques pour la visualisation des menaces (scans de ports, brute force)",
+            "💡 Point positif : Compréhension opérationnelle fine de la surveillance de sécurité en entreprise",
+            "🛠️ Auto-évaluation : 10/10, notre projet est entièrement fonctionnel et simule de vrais scénarios de réponse aux incidents."
+          ],
+          "technologies": ["Wazuh", "Kibana", "Elasticsearch", "SIEM", "Python"],
+          "team": "Équipe de 3 personnes",
+          "duration": "4 mois"
+        },
+        {
+          "name": "SAÉ S5 - Audit de sécurité et durcissement d'infrastructure",
+          "year": "BUT 3",
+          "type": "Projet SAÉ",
+          "image": {
+            "url": "/images/sae-s5-audit.png",
+            "position": "container"
+          },
+          "isActive": false,
+          "description": "Audit de sécurité complet, pentesting et durcissement (hardening) d'une infrastructure d'entreprise virtualisée sous Active Directory et serveurs Linux.",
+          "highlights": [
+            "🔍 Réalisation de scans de vulnérabilités et tests d'intrusion réseau (Nmap, Nessus, Metasploit)",
+            "🛡️ Durcissement des politiques Active Directory (GPO) et sécurisation des protocoles",
+            "🐧 Configuration de pare-feux et sécurisation des accès distants",
+            "📋 Rédaction d'un rapport d'audit détaillé et préconisations selon les recommandations de l'ANSSI",
+            "📈 Point positif : Méthode de travail rigoureuse inspirée des standards professionnels d'audit de sécurité",
+            "🎯 Auto-évaluation : 9/10, j'ai beaucoup appris sur la posture d'auditeur et la mise en conformité de systèmes critiques."
+          ],
+          "technologies": ["Active Directory", "Pentesting", "ANSSI", "Linux", "GPO"],
+          "team": "Équipe de 4 personnes",
+          "duration": "3 mois"
+        },
+        {
           "name": "Développement d’une application web",
           "year": "BUT 2",
           "type": "Projet SAÉ",

@@ -13,9 +13,12 @@ import ThemeSwitch from "@/components/ThemeSwitch.astro";
 import Ambitions from "@/components/sections/Ambitions.astro";
 import Talents from "@/components/sections/Talents.astro";
 import ScrollIndicator from "@/components/ScrollIndicator.astro";
+import Education from "@/components/sections/Education.astro";
+import CompetencesTable from "@/components/sections/CompetencesTable.astro";
+import MondeProfessionnel from "@/components/sections/MondeProfessionnel.astro";
+import PasseportCulturel from "@/components/sections/PasseportCulturel.astro";
 
 import CV, { basics } from "@cv";
-import Education from "@/components/sections/Education.astro";
 const { name, label } = basics;
 
 enum PageLayout {
@@ -53,6 +56,10 @@ enum PageLayout {
         <div id="competences">
           <Skills />
         </div>
+
+        <div id="evaluation">
+          <CompetencesTable />
+        </div>
         
         <div id="projets">
           <Projects />
@@ -61,6 +68,10 @@ enum PageLayout {
         <div id="experience">
           <Experience />
         </div>
+
+        <div id="monde-pro">
+          <MondeProfessionnel />
+        </div>
         
         <div id="talents">
           <Talents />
@@ -68,6 +79,10 @@ enum PageLayout {
         
         <div id="formation">
           <Education />
+        </div>
+
+        <div id="passeport-culturel">
+          <PasseportCulturel />
         </div>
         
         <div id="ambitions">
