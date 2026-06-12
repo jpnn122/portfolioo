@@ -1,0 +1,90 @@
+---
+// Composant indicateur de scroll avec barre de progression
+---
+
+<div class="scroll-indicator-container">
+  <!-- Barre de séparation verticale -->
+  <div class="separator-bar">
+    <!-- Barre de progression -->
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+</div>
+
+<style>
+  .scroll-indicator-container {
+    position: fixed;
+    left: calc(33.333333% - 1px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .separator-bar {
+    width: 2px;
+    height: 60vh;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--color-hue) 10%,
+      var(--color-hue) 90%,
+      transparent 100%
+    );
+    position: relative;
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(var(--color-hue-rgb), 0.3);
+  }
+
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 4px;
+    height: 0%;
+    background: linear-gradient(
+      to bottom,
+      var(--color-hue),
+      var(--color-button-accent)
+    );
+    border-radius: 2px;
+    transition: height 0.3s ease;
+    box-shadow: 0 0 15px rgba(var(--color-hue-rgb), 0.6);
+  }
+
+  
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .scroll-indicator-container {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const progressBar = document.getElementById('progress-bar');
+    const rightPanel = document.getElementById('right-panel');
+    
+    if (!rightPanel || !progressBar) return;
+
+    // Mise à jour de la barre de progression
+    function updateProgressBar() {
+      if (!rightPanel || !progressBar) return;
+      
+      const scrollTop = rightPanel.scrollTop;
+      const scrollHeight = rightPanel.scrollHeight - rightPanel.clientHeight;
+      const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      
+      progressBar.style.height = Math.min(Math.max(scrollPercent, 0), 100) + '%';
+    }
+
+    // Écouter le scroll sur le panneau de droite
+    rightPanel.addEventListener('scroll', updateProgressBar);
+
+    // Initialisation
+    setTimeout(() => {
+      updateProgressBar();
+    }, 300);
+  });
+</script> 

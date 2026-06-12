@@ -1,0 +1,306 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+
+import About from "@/components/sections/About.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Projects from "@/components/sections/Projects.astro";
+import Skills from "@/components/sections/Skills.astro";
+import Experience from "@/components/sections/Experience.astro";
+import Tail from "@/components/sections/Tail.astro";
+import KeyboardManager from "@/components/KeyboardManager.astro";
+import ThemeSwitch from "@/components/ThemeSwitch.astro";
+import Ambitions from "@/components/sections/Ambitions.astro";
+import Talents from "@/components/sections/Talents.astro";
+import ScrollIndicator from "@/components/ScrollIndicator.astro";
+
+import CV, { basics } from "@cv";
+import Education from "@/components/sections/Education.astro";
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+
+const { name, label, image } = basics;
+
+enum PageLayout {
+  SingleColumn = "single-column",
+  TwoColumn = "two-column",
+  Scroll = "scroll",
+}
+---
+
+<Layout title={`Bienvenue - ${name}'s Portfolio`}>
+  <!-- Thème switcher discret -->
+  <div class="fixed top-6 right-6 z-50">
+    <select 
+      id="themeSwitch" 
+      class="px-3 py-2 bg-skin-fill/80 backdrop-blur-sm border border-skin-hue/20 rounded-lg text-skin-base text-sm shadow-lg hover:shadow-xl transition-all duration-300"
+    >
+      <option value="system">🌓 Auto</option>
+      <option value="light">☀️ Clair</option>
+      <option value="dark">🌙 Sombre</option>
+    </select>
+  </div>
+
+  <div class="h-screen w-screen relative overflow-hidden bg-gradient-to-br from-skin-fill via-skin-fill to-skin-hue/5 flex items-center justify-center">
+    <!-- Arrière-plan animé -->
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-skin-hue/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-skin-hue/5 rounded-full blur-3xl animate-bounce" style="animation-duration: 4s;"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-skin-hue/8 rounded-full blur-2xl animate-spin" style="animation-duration: 20s;"></div>
+      
+      <!-- Cercles décoratifs flottants -->
+      <div class="floating-circle absolute top-1/4 left-1/4 w-4 h-4 bg-skin-hue/20 rounded-full"></div>
+      <div class="floating-circle absolute top-3/4 right-1/4 w-6 h-6 bg-skin-hue/15 rounded-full" style="animation-delay: 1s;"></div>
+      <div class="floating-circle absolute bottom-1/4 left-1/3 w-3 h-3 bg-skin-hue/25 rounded-full" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Contenu principal centré -->
+    <div class="relative z-10 flex flex-col items-center justify-center px-4 text-center max-w-4xl mx-auto">
+      
+      <!-- Photo de profil avec animation -->
+      <div class="welcome-avatar mt-20 mb-12 relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-skin-hue/20 to-skin-hue/5 rounded-full blur-xl scale-110 animate-pulse"></div>
+        <Image 
+          class="relative w-40 h-40 md:w-488 md:h-48 rounded-full object-cover border-4 border-skin-hue/30 shadow-2xl transform hover:scale-105 transition-all duration-500" 
+          src={image} 
+          alt={name} 
+          width={192}
+          height={192}
+        />
+        <!-- Particules flottantes autour de l'avatar -->
+        <div class="absolute -top-2 -right-2 w-3 h-3 bg-skin-hue rounded-full animate-ping"></div>
+        <div class="absolute -bottom-3 -left-1 w-2 h-2 bg-skin-hue/60 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 -right-4 w-1 h-1 bg-skin-hue/40 rounded-full animate-ping" style="animation-delay: 2s;"></div>
+      </div>
+
+      <!-- Texte de bienvenue avec animations -->
+      <div class="space-y-8 mb-16">
+        <h1 class="welcome-title text-5xl md:text-7xl font-bold text-skin-base leading-tight">
+          <span class="inline-block animate-fadeInUp">Bienvenue</span>
+          <span class="inline-block animate-fadeInUp text-skin-hue" style="animation-delay: 0.2s;">sur mon</span>
+          <span class="inline-block animate-fadeInUp" style="animation-delay: 0.4s;">Portfolio</span>
+        </h1>
+        
+        <p class="text-2xl md:text-3xl text-skin-muted animate-fadeInUp" style="animation-delay: 0.6s;">
+          Je suis <strong class="text-skin-hue">{name}</strong>
+        </p>
+        
+        <p class="text-xl md:text-2xl text-skin-hue font-medium animate-fadeInUp" style="animation-delay: 0.7s;">
+          {label}
+        </p>
+        
+        <p class="text-lg md:text-xl text-skin-muted/80 animate-fadeInUp leading-relaxed max-w-2xl mx-auto" style="animation-delay: 0.8s;">
+          Découvrez mon parcours, mes projets et mes compétences en informatique.
+          <br />
+          <span class="text-skin-hue">Prêt à explorer ensemble mon univers technologique ?</span>
+        </p>
+      </div>
+
+      <!-- Indication interactive -->
+      <div class="animate-fadeInUp" style="animation-delay: 1s;">
+        <div class="flex flex-col items-center gap-6 text-skin-muted/70 hover:text-skin-hue transition-colors duration-300 cursor-pointer" onclick="window.location.href='/portfolio'">
+          <div class="flex items-center gap-3 text-lg md:text-xl">
+            <Icon name="mdi:mouse" class="w-6 h-6" />
+            <span class="font-medium">Cliquez n'importe où pour continuer</span>
+            <Icon name="mdi:gesture-tap" class="w-6 h-6" />
+          </div>
+          
+          <!-- Indicateur visuel animé -->
+          <div class="flex flex-col items-center gap-3">
+            <div class="flex space-x-2">
+              <div class="w-3 h-3 bg-skin-hue/50 rounded-full animate-bounce"></div>
+              <div class="w-3 h-3 bg-skin-hue/50 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+              <div class="w-3 h-3 bg-skin-hue/50 rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+            </div>
+            
+            <!-- Flèche animée vers le bas puis qui disparaît -->
+            <div class="animate-pulse">
+              <Icon name="mdi:chevron-down" class="w-8 h-8 text-skin-hue/60" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Empêcher le scroll sur toute la page */
+  html, body {
+    overflow: hidden;
+    height: 100vh;
+    scroll-behavior: unset;
+  }
+
+  /* Animations personnalisées */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .floating-circle {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Effet de gradient animé pour le titre */
+  .welcome-title {
+    background: linear-gradient(
+      45deg,
+      var(--color-text-base),
+      var(--color-hue),
+      var(--color-text-base),
+      var(--color-hue)
+    );
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: gradientShift 4s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { 
+      background-position: 0% 50%; 
+    }
+    50% { 
+      background-position: 100% 50%; 
+    }
+  }
+
+  /* Responsive pour mobile */
+  @media (max-width: 768px) {
+    .welcome-title {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+  }
+
+  /* Effet de clic sur toute la page */
+  body {
+    cursor: pointer;
+  }
+
+  /* Effet hover sur l'indication */
+  .cursor-pointer:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+</style>
+
+<script>
+  // Gestion du thème
+  const select = document.getElementById('themeSwitch') as HTMLSelectElement
+  const theme = localStorage.getItem('theme')
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+
+  if (theme !== null) {
+    select.value = theme
+  } else {
+    select.value = systemTheme
+  }
+
+  function updateTheme(value: string) {
+    const theme = value === 'system' ? systemTheme : value
+    document.documentElement.classList.remove('light', 'dark')
+    document.documentElement.classList.add(theme)
+    localStorage.setItem('theme', value)
+  }
+
+  updateTheme(select.value)
+
+  select.addEventListener('change', (event: Event) => {
+    const select = event.target as HTMLSelectElement
+    updateTheme(select.value)
+  })
+
+  // Clic sur toute la page pour aller au portfolio (sauf sur le sélecteur de thème)
+  document.addEventListener('click', (e) => {
+    // Éviter la redirection si on clique sur le sélecteur de thème
+    if (
+      e.target instanceof HTMLSelectElement || 
+      (e.target as HTMLElement).closest('select')
+    ) {
+      return;
+    }
+    
+    // Redirection immédiate vers le portfolio
+    window.location.href = '/portfolio';
+  });
+
+  // Désactiver le scroll avec les touches
+  document.addEventListener('keydown', (e) => {
+    // Empêcher les touches de scroll (flèches, page up/down, home, end)
+    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', 'Space'].includes(e.code)) {
+      e.preventDefault();
+    }
+  });
+
+  // Désactiver le scroll avec la molette
+  document.addEventListener('wheel', (e) => {
+    e.preventDefault();
+  }, { passive: false });
+
+  // Animation de particules flottantes
+  document.addEventListener('DOMContentLoaded', () => {
+    // Ajouter des particules flottantes aléatoirement
+    const createFloatingParticle = () => {
+      const particle = document.createElement('div');
+      particle.className = 'fixed w-1 h-1 bg-skin-hue/20 rounded-full pointer-events-none z-0';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.top = '100vh';
+      particle.style.animation = `float-up ${5 + Math.random() * 10}s linear infinite`;
+      
+      document.body.appendChild(particle);
+      
+      setTimeout(() => {
+        particle.remove();
+      }, 15000);
+    };
+
+    // Créer des particules périodiquement
+    setInterval(createFloatingParticle, 3000);
+  });
+
+  // Animation keyframes pour les particules
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float-up {
+      from {
+        transform: translateY(0) scale(0);
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        transform: translateY(-100vh) scale(0);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+</script>

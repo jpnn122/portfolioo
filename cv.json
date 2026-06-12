@@ -1,0 +1,352 @@
+{
+  "analyticsCode": "",
+  "pageLayout": "two-column",
+  "basics": {
+    "name": "Syphax BENCHALAL",
+    "label": "Étudiant en BUT 3 Informatique",
+    "age": "20 ans",
+    "image": "/avatar.png",
+    "email": "syphaxben14@gmail.com",
+    "url": "#",
+    "summary": "Je suis Syphax BENCHALAL, à la base étudiant orienté en mathématiques-sciences, j'ai décidé de poursuivre mes études supérieures en informatique. Actuellement en dernière année de BUT Informatique, tout se passe bien et je me trouvé une passion : la cybersécurité et la compréhension fine des systèmes numériques. Curieux, rigoureux et créatif, j’ai toujours voulu savoir comment les choses fonctionnent… et parfois, comment elles peuvent être détournées. Aujourd’hui, j’oriente cette curiosité vers la protection des données : identifier les vulnérabilités, sécuriser les environnements et concevoir des systèmes fiables et résilients.\n\nAu-delà de l’univers technique, je suis passionné par les jeux vidéo. Ils m’ont appris la stratégie, l’analyse fine et la gestion du stress : des qualités essentielles dans le domaine de la cybersécurité, où chaque détail peut avoir de lourdes conséquences. Comprendre les mécaniques d’un jeu revient souvent à décoder celles d’un système ou d’un scénario d’attaque : une compétence que je développe au quotidien.\n\nMa passion pour la moto reflète une autre facette de ma personnalité : la recherche de liberté, la précision et le contrôle. Elle influence ma manière de travailler : aller vite, oui, mais toujours avec maîtrise. Renforcer un pare-feu ou diagnostiquer une faille, c’est comme négocier un virage serré : chaque action doit être réfléchie, calculée et fluide. J’aspire à apporter cette même exigence et ce sens du détail dans mon parcours professionnel." ,
+    
+    "theme": "blue",
+    "location": {
+      "address": "Saint-Denis",
+      "city": "",
+      "countryCode": "FR",
+      "region": "FRANCE"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "icon": "simple-icons:linkedin",
+        "username": "syphax-benchalal-0777124373",
+        "url": "https://www.linkedin.com/in/syphax-benchalal-484240337/"
+      },
+      {
+        "network": "GitHub",
+        "icon": "simple-icons:github",
+        "username": "jpnn122",
+        "url": "https://github.com/jpnn122"
+      },
+      {
+        "network": "CV",
+        "icon": "mdi:file-pdf-box",
+        "username": "CV : Télécharger CV",
+        "url": "/images/CV.pdf"
+      }
+    ],
+    "beian": {
+      "mint": "赣ICP备2021005460号-1",
+      "police": "赣公网安备 36010302000349号"
+    }
+  },
+  "education": [
+    {
+      "institution": "Université Sorbonne Paris Nord",
+      "url": "https://formations.univ-rennes.fr/annee/annee-2-informatique-info-parcours-realisation-dapplications-conception-developpement",
+      "area": "BUT Informatique",
+      "studyType": "Bac +2 (en cours)",
+      "startDate": "2023-09-01",
+      "endDate": null
+    },
+    {
+      "institution": "Lycée polyvalent Angela Davis (Saint-Denis)",
+      "url": "",
+      "area": "Baccalauréat - Spécialités : mathématiques, physique-chimie",
+      "studyType": "Baccalauréat",
+      "startDate": "2020-09-01",
+      "endDate": "2023-06-30"
+    },
+    {
+      "institution": "Collège Pierre de Geyter (Saint-Denis)",
+      "url": "",
+      "area": "Brevet des collèges",
+      "studyType": "Brevet",
+      "startDate": "2016-09-01",
+      "endDate": "2020-06-30"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Success has lived a day in the world.",
+      "date": "2010-04-14",
+      "url": "",
+      "issuer": "Myself"
+    },
+    {
+      "name": "TCCP - Senior Cloud Architecture Engineer",
+      "date": "2023-05-01",
+      "url": "",
+      "issuer": "Tencent Cloud"
+    }
+  ],
+  "work": [
+    {
+      "name": "Scheidt & Bachmann",
+      "position": "Cybersécurité & Infrastructure - Stage",
+      "location_type": "On-site",
+      "location": "Montmagny (95), FR",
+      "url": "",
+      "startDate": "2026-03-01",
+      "endDate": "2026-07-31",
+      "summary": "Sécurisation et maintien en condition opérationnelle (MCO) d'infrastructures critiques.",
+      "highlights": [
+        "Structuration d’un laboratoire de tests isolé (VLAN, virtualisation)",
+        "Optimisation des accès distants sécurisés et SSO",
+        "Rédaction de directives de gouvernance de sécurité",
+        "Maintien en condition opérationnelle et hardening système/réseau"
+      ],
+      "responsibilities": [
+        "Sécurisation des infrastructures réseau et système",
+        "Conception de maquettes d'environnements virtualisés"
+      ],
+      "achievements": [
+        "Isolement et validation réussie de correctifs critiques"
+      ],
+      "skills": {
+        "VLAN": "simple-icons:virtualbox",
+        "Virtualisation": "simple-icons:virtualbox",
+        "SSO": "mdi:shield-key",
+        "Hardening": "mdi:shield-lock",
+        "MCO": "mdi:server",
+        "Security": "mdi:security"
+      }
+    },
+    {
+      "name": "Sgguo Development Team",
+      "position": "Full-stack Developer",
+      "location_type": "Remote",
+      "location": "CN",
+      "url": "https://github.com/Sgguo-Development-Team",
+      "startDate": "2022-06-01",
+      "endDate": null,
+      "summary": "Developing high-availability full-stack projects.",
+      "highlights": [
+        "Enhanced internal workflow efficiency by 30%."
+      ],
+      "responsibilities": [
+        "Developed and maintained backend services using Node.js and Golang."
+      ],
+      "achievements": [
+        "Implemented a cloud drive and verification code system."
+      ],
+      "skills": {
+        "PHP": "simple-icons:php",
+        "Node": "ri:nodejs-line",
+        "Golang": "simple-icons:go",
+        "Next.js": "ri:nextjs-fill",
+        "React": "mdi:react",
+        "SQL": "simple-icons:mysql",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "NestJS": "simple-icons:nestjs",
+        "Vue": "mdi:vuejs"
+      }
+    },
+    {
+      "name": "Riddle Town Team",
+      "position": "Full-stack Developer",
+      "location_type": "Remote",
+      "location": "CN",
+      "url": "https://rth2.gcxstudio.cn",
+      "startDate": "2023-01-01",
+      "endDate": "2024-02-11",
+      "summary": "Led page design and account systems.",
+      "highlights": [
+        "Completed 95% of project content."
+      ],
+      "responsibilities": [
+        "Developed complete pages.",
+        "Integrated user-facing elements with server-side logic."
+      ],
+      "achievements": [
+        "Ensured smooth project execution."
+      ],
+      "skills": {
+        "HTML": "simple-icons:html5",
+        "CSS": "ri:css3-fill",
+        "JavaScript": "simple-icons:javascript",
+        "TypeScript": "simple-icons:typescript",
+        "Vite": "simple-icons:vite",
+        "Node": "ri:nodejs-line",
+        "Docker": "mdi:docker",
+        "WordPress": "ri:wordpress-fill",
+        "Astro": "simple-icons:astro",
+        "SQL": "simple-icons:mysql",
+        "Tailwind": "mdi:tailwind",
+        "React": "mdi:react",
+        "GitHub": "mdi:github",
+        "Git": "mdi:git"
+      }
+    }
+  ],
+  "skills": [
+    { "name": "Java", "level": "Avancé", "keywords": ["Programmation", "POO"] },
+    { "name": "Python", "level": "Avancé", "keywords": ["Programmation", "Scripts", "Algorithmique"] },
+    { "name": "Javascript", "level": "Intermédiaire", "keywords": ["Web", "Frontend", "Backend"] },
+    { "name": "SQL", "level": "Intermédiaire", "keywords": ["Base de données", "MySQL", "PostgreSQL"] },
+    { "name": "HTML", "level": "Intermédiaire", "keywords": ["Web"] },
+    { "name": "CSS", "level": "Intermédiaire", "keywords": ["Web", "Design"] },
+    { "name": "C", "level": "Débutant", "keywords": ["Programmation bas niveau"] },
+    { "name": "Linux", "level": "Intermédiaire", "keywords": ["Systèmes", "Administration"] },
+    { "name": "Vscode", "level": "Avancé", "keywords": ["IDE"] },
+    { "name": "GitHub", "level": "Intermédiaire", "keywords": ["Gestion de version"] },
+    { "name": "MySQL Workbench", "level": "Intermédiaire", "keywords": ["Base de données"] },
+    { "name": "PostgreSQL", "level": "Intermédiaire", "keywords": ["Base de données"] },
+    { "name": "VirtualBox", "level": "Avancé", "keywords": ["Virtualisation"] },
+    { "name": "Notepad++", "level": "Intermédiaire", "keywords": ["Éditeur"] },
+    { "name": "Teams", "level": "Intermédiaire", "keywords": ["Collaboration"] },
+    { "name": "Pack Office", "level": "Intermédiaire", "keywords": ["Bureautique"] }
+  ],
+  "languages": [
+    {
+      "language": "Chinese",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Intermediate"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technology",
+      "keywords": [
+        "AI",
+        "Blockchain"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "MiraHikari",
+      "reference": "Reference…"
+    }
+  ],
+  "projects": {
+    "university": {
+      "Projets Universitaires": [
+        {
+          "name": "Développement d’une application web",
+          "year": "BUT 2",
+          "type": "Projet SAÉ",
+          "image": {
+            "url": "/images/plateforme-stages.png",
+            "position": "container"
+          },
+          "isActive": true,
+          "description": "Développement d'une application web complète permettant d’annoter les messages échangés dans les conversations de messagerie instantanée tout en assurant un haut niveau de confidentialité et de sécurité.",
+          "highlights": [
+            "📚 Gestion complète de la confidentalité des messages",
+            "💬 Communication sécurisée",
+            "📄 Stockage des messages dans une base de donnée",
+            "📅 Point positif : le site marche, les messages aussi et la cryptologie fonctionne",
+            "👥 Point négatif : quelques bugs d'interface par moment",
+            "💾  Auto-évaluation : 9/10, Je suis fier de notre résultat, Avec un peu plus de temps, j’aurais renforcé l’expérience utilisateur et peaufiné la couche de sécurité."
+            
+          ],
+          "url": "https://github.com/EnrikeChampion/SAE-S4",
+          "github": "https://github.com/EnrikeChampion/SAE-S4",
+          "technologies": ["PHP", "JavaScript", "HTML", "CSS", "MySQL"],
+          "team": "Équipe de 5 personnes",
+          "duration": "4 mois"
+        },
+        {
+          "name": "SAÉ Maquette Client - Librairie",
+          "year": "BUT 1",
+          "type": "Projet SAÉ",
+          "image": {
+            "url": "/images/librairie-wix.png",
+            "position": "container"
+          },
+          "isActive": true,
+          "description": "Projet de conception et développement d'un site web pour une librairie fictive. Le projet impliquait un double rôle : client et développeur. L'objectif était d'apprendre à recueillir les besoins client et à créer des maquettes prototypes correspondantes.",
+          "highlights": [
+            "🎭 Double rôle : client et développeur",
+            "📋 Recueil des besoins et analyse client",
+            "🎨 Création de maquettes et prototypes",
+            "📚 Point positif : Interface moderne et intuitive, focus sur l'experience utilisateur",
+            "💻 Point négatif : page blanche par moment",
+            "🎯  Auto-évaluation : 7/10, Assez content du site, + de fonctionnalitées auraient du etre mises en place mais le projet compte évoluer encore cette année"
+          ],
+          "technologies": ["Wix", "Design", "UX/UI"],
+          "team": "Binôme",
+          "duration": "2 mois"
+        },
+        {
+          "name": "Installation de Services Réseau",
+          "year": "BUT 1",
+          "type": "Projet SAÉ",
+          "image": {
+            "url": "/images/services-reseau.png",
+            "position": "container"
+          },
+          "isActive": false,
+          "description": "Configuration et déploiement de services réseau avec administration système et sécurisation des infrastructures. Projet réalisé sur machine virtuelle pour maîtriser l'administration des systèmes informatiques communicants complexes.",
+          "highlights": [
+            "🖥️ Configuration de services réseau sur VM",
+            "🔒 Sécurisation des infrastructures réseau",
+            "⚙️ Administration système avancée",
+            "🌐 Déploiement de services communicants",
+            "📊 Point positif : La gestion de systèmes complexes à été faite avec une simplicité affolante",
+            "🛡️ Auto-évaluation : 10/10, Pour le premier projet de mon cursus universitaire, j'ai été énormément marqué par celui-ci et par sa compréhension totale de ma part "
+        
+          ],
+          "technologies": ["Linux", "VirtualBox", "Services Réseau", "Administration Système", "Sécurité"],
+          "team": "Binôme",
+          "duration": "1 ans",
+          "competences": [
+            "3. Administrer des systèmes informatiques communicants complexes",
+            "5. Conduire un projet"
+          ]
+        }
+      ]
+    },
+        "personal": [
+      {
+        "name": "Dropshipping - Vente & Conception",
+        "image": {
+          "url": "/images/mlconnect.png",
+          "position": "container"
+        },
+        "isActive": false,
+        "description": "Ce projet personnel m’a permis d’explorer le monde du e-commerce en combinant mes compétences en développement web et en automatisation. J’ai conçu et mis en ligne des sites de vente spécialisés, tout en optimisant les aspects techniques pour maximiser la performance et l’efficacité.",
+        "highlights": [
+          "🤖 Web scraping automatisé multi-sites avec gestion des anti-bots",
+          "📧 Système de notifications par email et SMS en temps réel",
+          "🔄 Surveillance continue avec intervalles configurables",
+          "🛡️ Gestion robuste des erreurs et mécanismes de retry",
+          "📊 Dashboard de suivi avec historique des prix et disponibilité",
+          "⚡ Auto-évaluation : 10/10 PS: Je suis disponible pour vos demandes !"
+        ],
+        "url": "https://mlconnect.fr/",
+        "technologies": ["Shopify", "TikTok Ads", "Canva", "ChatGPT"],
+        "team": "Personnel",
+        "duration": "Toujours d'actualité",
+        "status": "🚧 Toujours d'actualité"
+      },
+      {
+        "name": "Installation de CarPlay sur les vehicules Renault",
+        "image": {
+          "url": "/images/core-connect.png",
+          "position": "container"
+        },
+        "isActive": true,
+        "description": "Installation de CarPlay sur des véhicules Renault, combinant logiciels et scripts.",
+        "highlights": [
+          "🎨 Monde du business et de l'entreprenariat",
+          "🏪 Combinant scripts en bash, mises a jour logcielles sur les véhicules",
+          "📱 Responsive design adaptatif pour desktop, tablette et mobile",
+          "🔧 Gestion des réseaux sociaux et de la publicité",
+          "⚡ Gestion et résolution des demandes et S.A.V clients",
+          "🎯 Auto-évaluation : 9/10 . Les demandes de S.A.V sont assez génante surtout en tant qu'étudiant qui a des disponiblités assez limitées"
+        ],
+        "technologies": ["bash", "logiciels", "TikTok Ads", "Google Ads", "Windows"],
+        "team": "Personnel",
+        "duration": "1 mois"
+      }
+    ]
+  }
+}
