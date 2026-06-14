@@ -3,95 +3,159 @@ import Section from "../Section.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<Section title="Auto-évaluation des Compétences (Niveau 3)">
+<Section title="Auto-évaluation des compétences">
   <div id="competences-table-section" class="space-y-6">
-    <p class="text-sm text-skin-muted leading-relaxed">
-      Synthèse et auto-évaluation des acquis de niveau 3 sur 3 compétences clés du BUT Informatique, illustrant mon parcours vers l'ingénierie et la cybersécurité.
+    <p class="text-sm leading-relaxed text-skin-muted">
+      Synthèse et auto-évaluation des acquis de niveau 3 sur 3 compétences clés
+      du BUT Informatique, illustrant mon parcours vers l'ingénierie et la
+      cybersécurité.
     </p>
 
     <!-- Table view for desktop, Card view for mobile -->
-    <div class="overflow-x-auto rounded-lg border border-skin-hue/20 shadow-lg hidden md:block">
-      <table class="min-w-full divide-y divide-skin-hue/10 bg-skin-button-accent/5">
+    <div
+      class="hidden overflow-x-auto rounded-lg border border-skin-hue/20 shadow-lg md:block"
+    >
+      <table
+        class="min-w-full divide-y divide-skin-hue/10 bg-skin-button-accent/5"
+      >
         <thead class="bg-skin-fill/80 backdrop-blur-sm">
           <tr>
-            <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-skin-base uppercase tracking-wider w-1/4">Compétence (BUT3 - Niveau 3)</th>
-            <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-skin-base uppercase tracking-wider w-5/12">Traces & Projets associés (S5/S6 & Stage)</th>
-            <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-skin-base uppercase tracking-wider w-1/4">Auto-évaluation & Soft Skills</th>
-            <th scope="col" class="px-6 py-4 text-center text-sm font-semibold text-skin-base uppercase tracking-wider w-1/12">Maîtrise</th>
+            <th
+              scope="col"
+              class="w-1/4 px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-skin-base"
+              >Compétence</th
+            >
+            <th
+              scope="col"
+              class="w-5/12 px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-skin-base"
+              >Traces & Projets associés</th
+            >
+            <th
+              scope="col"
+              class="w-1/4 px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-skin-base"
+              >Auto-évaluation & Soft Skills</th
+            >
+            <th
+              scope="col"
+              class="w-1/12 px-6 py-4 text-center text-sm font-semibold uppercase tracking-wider text-skin-base"
+              >Maîtrise</th
+            >
           </tr>
         </thead>
         <tbody class="divide-y divide-skin-hue/10">
           <!-- Compétence 1 -->
-          <tr class="hover:bg-skin-button-accent/10 transition-colors duration-200">
+          <tr
+            class="transition-colors duration-200 hover:bg-skin-button-accent/10"
+          >
             <td class="px-6 py-4">
               <div class="flex items-center gap-2">
                 <Icon name="mdi:code-tags" class="size-5 text-skin-hue" />
-                <span class="font-semibold text-skin-base text-sm">Compétence 1 : Réaliser</span>
+                <span class="text-sm font-semibold text-skin-base"
+                  >Compétence 1 : Réaliser</span
+                >
               </div>
-              <p class="text-xs text-skin-muted mt-1 italic">Adapter des applications à des architectures distribuées et sécurisées.</p>
+              <p class="mt-1 text-xs italic text-skin-muted">
+                Adapter des applications à des architectures distribuées et
+                sécurisées.
+              </p>
             </td>
             <td class="px-6 py-4 text-sm text-skin-muted">
-              <ul class="list-disc pl-4 space-y-1">
-                <li><strong>SAÉ S4 (Messagerie Web chiffrée) :</strong> Authentification, cryptologie et sécurisation des flux (MySQL/PHP).</li>
-                <li><strong>SAÉ S6 (SOC & SIEM) :</strong> Automatisation de réponses sur détection d'alertes via scripts Python et agents.</li>
+              <ul class="list-disc space-y-1 pl-4">
+                <li>
+                  <strong>SAÉ S5 (Recommandation de nourriture "Graye") :</strong> Suggestion intelligente de restaurants selon les préférences gustatives de l'utilisateur (TypeScript/JavaScript).
+                </li>
+                <li>
+                  <strong>SAÉ S6 (Diagramme de Voronoi en Python) :</strong> Création d'un logiciel interactif en Python pour le calcul et la visualisation dynamique des partitions de Voronoi.
+                </li>
               </ul>
             </td>
             <td class="px-6 py-4 text-sm text-skin-muted">
-              Bonne maîtrise des concepts de cryptographie et sécurité applicative (OWASP). Autonomie dans le code structuré et sécurisé.
+              Bonne maîtrise des concepts de cryptographie et sécurité
+              applicative (OWASP). Autonomie dans le code structuré et sécurisé.
             </td>
             <td class="px-6 py-4 text-center">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+              <span
+                class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-800 dark:bg-green-900/30 dark:text-green-400"
+              >
                 9 / 10
               </span>
             </td>
           </tr>
 
           <!-- Compétence 3 -->
-          <tr class="hover:bg-skin-button-accent/10 transition-colors duration-200">
+          <tr
+            class="transition-colors duration-200 hover:bg-skin-button-accent/10"
+          >
             <td class="px-6 py-4">
               <div class="flex items-center gap-2">
                 <Icon name="mdi:server-network" class="size-5 text-skin-hue" />
-                <span class="font-semibold text-skin-base text-sm">Compétence 3 : Administrer</span>
+                <span class="text-sm font-semibold text-skin-base"
+                  >Compétence 3 : Administrer</span
+                >
               </div>
-              <p class="text-xs text-skin-muted mt-1 italic">Concevoir et déployer des infrastructures réseau sécurisées et automatisées.</p>
+              <p class="mt-1 text-xs italic text-skin-muted">
+                Concevoir et déployer des infrastructures réseau sécurisées et
+                automatisées.
+              </p>
             </td>
             <td class="px-6 py-4 text-sm text-skin-muted">
-              <ul class="list-disc pl-4 space-y-1">
-                <li><strong>Stage Scheidt & Bachmann :</strong> Structuration d'un laboratoire de tests virtualisé isolé par VLANs.</li>
-                <li><strong>SAÉ S5 (Audit & Hardening) :</strong> Durcissement d'infrastructures AD, pare-feux et configurations GPO.</li>
-                <li><strong>SAÉ S6 (Déploiement SOC) :</strong> Supervision SIEM via Wazuh/ELK.</li>
+              <ul class="list-disc space-y-1 pl-4">
+                <li>
+                  <strong>Stage Scheidt & Bachmann :</strong> Structuration d'un laboratoire de tests virtualisé et isolé par VLANs.
+                </li>
+                <li>
+                  <strong>SAÉ S5 (Sécurisation de "Graye") :</strong> Recherche de failles de sécurité et sécurisation de la base de données et des flux utilisateurs.
+                </li>
               </ul>
             </td>
             <td class="px-6 py-4 text-sm text-skin-muted">
-              Forte autonomie sur les hyperviseurs et la segmentation réseau. Rigueur dans le maintien en condition opérationnelle (MCO).
+              Forte autonomie sur les hyperviseurs et la segmentation réseau.
+              Rigueur dans le maintien en condition opérationnelle (MCO).
             </td>
             <td class="px-6 py-4 text-center">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+              <span
+                class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-800 dark:bg-green-900/30 dark:text-green-400"
+              >
                 10 / 10
               </span>
             </td>
           </tr>
 
           <!-- Compétence 5 -->
-          <tr class="hover:bg-skin-button-accent/10 transition-colors duration-200">
+          <tr
+            class="transition-colors duration-200 hover:bg-skin-button-accent/10"
+          >
             <td class="px-6 py-4">
               <div class="flex items-center gap-2">
                 <Icon name="mdi:account-group" class="size-5 text-skin-hue" />
-                <span class="font-semibold text-skin-base text-sm">Compétence 5 : Conduire</span>
+                <span class="text-sm font-semibold text-skin-base"
+                  >Compétence 5 : Conduire</span
+                >
               </div>
-              <p class="text-xs text-skin-muted mt-1 italic">Piloter un projet informatique complexe avec des équipes pluridisciplinaires en intégrant les risques cyber.</p>
+              <p class="mt-1 text-xs italic text-skin-muted">
+                Piloter un projet informatique complexe avec des équipes
+                pluridisciplinaires en intégrant les risques cyber.
+              </p>
             </td>
             <td class="px-6 py-4 text-sm text-skin-muted">
-              <ul class="list-disc pl-4 space-y-1">
-                <li><strong>SAÉ S5 / S6 :</strong> Conduite de projets d'audit de sécurité et d'automatisation SOC en groupe de 3 à 4 étudiants.</li>
-                <li>Gestion des plannings, des rôles et des livrables selon les méthodologies agiles.</li>
+              <ul class="list-disc space-y-1 pl-4">
+                <li>
+                  <strong>SAÉ S5 / S6 :</strong> Conduite de projets complexes (recommandation de nourriture et visualisation de Voronoi) en groupes de 3 à 4 étudiants.
+                </li>
+                <li>
+                  Gestion des plannings, rôles et livrables selon les méthodologies agiles (Trello, Scrum).
+                </li>
               </ul>
             </td>
             <td class="px-6 py-4 text-sm text-skin-muted">
-              Capacité à répartir et coordonner les tâches. Intégration systématique de l'analyse de risques (directives ANSSI) dès la conception.
+              Capacité à répartir et coordonner les tâches. Intégration
+              systématique de l'analyse de risques (directives ANSSI) dès la
+              conception.
             </td>
             <td class="px-6 py-4 text-center">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+              <span
+                class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-800 dark:bg-green-900/30 dark:text-green-400"
+              >
                 9 / 10
               </span>
             </td>
@@ -103,68 +167,119 @@ import { Icon } from "astro-icon/components";
     <!-- Mobile view: Cards list -->
     <div class="grid grid-cols-1 gap-6 md:hidden">
       <!-- Card Compétence 1 -->
-      <div class="bg-skin-button-accent/5 p-5 rounded-lg border border-skin-hue/20 space-y-3">
+      <div
+        class="space-y-3 rounded-lg border border-skin-hue/20 bg-skin-button-accent/5 p-5"
+      >
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
             <Icon name="mdi:code-tags" class="size-5 text-skin-hue" />
-            <h4 class="font-semibold text-skin-base">Compétence 1 : Réaliser</h4>
+            <h4 class="font-semibold text-skin-base">
+              Compétence 1 : Réaliser
+            </h4>
           </div>
-          <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+          <span
+            class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-800"
+          >
             9 / 10
           </span>
         </div>
-        <p class="text-xs text-skin-muted italic">Adapter des applications à des architectures distribuées et sécurisées.</p>
+        <p class="text-xs italic text-skin-muted">
+          Adapter des applications à des architectures distribuées et
+          sécurisées.
+        </p>
         <div class="text-sm text-skin-muted">
-          <h5 class="font-semibold text-skin-base text-xs mb-1">PROJETS ASSOCIES :</h5>
-          <p>SAÉ S4 (Messagerie Web chiffrée), SAÉ S6 (SOC & SIEM).</p>
+          <h5 class="mb-1 text-xs font-semibold text-skin-base">
+            PROJETS ASSOCIES :
+          </h5>
+          <p>SAÉ S5 (App de nourriture "Graye"), SAÉ S6 (Diagramme de Voronoi).</p>
         </div>
         <div class="text-sm text-skin-muted">
-          <h5 class="font-semibold text-skin-base text-xs mb-1">AUTO-EVALUATION :</h5>
-          <p>Maîtrise de la sécurité applicative (OWASP) et du chiffrement. Travail autonome et propre.</p>
+          <h5 class="mb-1 text-xs font-semibold text-skin-base">
+            AUTO-EVALUATION :
+          </h5>
+          <p>
+            Maîtrise de la sécurité applicative (OWASP) et du chiffrement.
+            Travail autonome et propre.
+          </p>
         </div>
       </div>
 
       <!-- Card Compétence 3 -->
-      <div class="bg-skin-button-accent/5 p-5 rounded-lg border border-skin-hue/20 space-y-3">
+      <div
+        class="space-y-3 rounded-lg border border-skin-hue/20 bg-skin-button-accent/5 p-5"
+      >
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
             <Icon name="mdi:server-network" class="size-5 text-skin-hue" />
-            <h4 class="font-semibold text-skin-base">Compétence 3 : Administrer</h4>
+            <h4 class="font-semibold text-skin-base">
+              Compétence 3 : Administrer
+            </h4>
           </div>
-          <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+          <span
+            class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-800"
+          >
             10 / 10
           </span>
         </div>
-        <p class="text-xs text-skin-muted italic">Concevoir et déployer des infrastructures réseau sécurisées et automatisées.</p>
+        <p class="text-xs italic text-skin-muted">
+          Concevoir et déployer des infrastructures réseau sécurisées et
+          automatisées.
+        </p>
         <div class="text-sm text-skin-muted">
-          <h5 class="font-semibold text-skin-base text-xs mb-1">PROJETS ASSOCIES :</h5>
-          <p>Stage Scheidt & Bachmann (laboratoire de virtualisation, VLANs), SAÉ S5 (Audit Active Directory), SAÉ S6 (Déploiement SIEM/SOC).</p>
+          <h5 class="mb-1 text-xs font-semibold text-skin-base">
+            PROJETS ASSOCIES :
+          </h5>
+          <p>
+            Stage Scheidt & Bachmann (laboratoire de virtualisation, VLANs), SAÉ
+            S5 (Sécurisation BDD & UI de "Graye").
+          </p>
         </div>
         <div class="text-sm text-skin-muted">
-          <h5 class="font-semibold text-skin-base text-xs mb-1">AUTO-EVALUATION :</h5>
-          <p>Forte expertise en virtualisation, filtrage AD et MCO réseau. Très autonome sur le durcissement système.</p>
+          <h5 class="mb-1 text-xs font-semibold text-skin-base">
+            AUTO-EVALUATION :
+          </h5>
+          <p>
+            Forte expertise en virtualisation, filtrage AD et MCO réseau. Très
+            autonome sur le durcissement système.
+          </p>
         </div>
       </div>
 
       <!-- Card Compétence 5 -->
-      <div class="bg-skin-button-accent/5 p-5 rounded-lg border border-skin-hue/20 space-y-3">
+      <div
+        class="space-y-3 rounded-lg border border-skin-hue/20 bg-skin-button-accent/5 p-5"
+      >
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
             <Icon name="mdi:account-group" class="size-5 text-skin-hue" />
-            <h4 class="font-semibold text-skin-base">Compétence 5 : Conduire</h4>
+            <h4 class="font-semibold text-skin-base">
+              Compétence 5 : Conduire
+            </h4>
           </div>
-          <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+          <span
+            class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-800"
+          >
             9 / 10
           </span>
         </div>
-        <p class="text-xs text-skin-muted italic">Piloter un projet informatique complexe avec des équipes pluridisciplinaires en intégrant les risques cyber.</p>
+        <p class="text-xs italic text-skin-muted">
+          Piloter un projet informatique complexe avec des équipes
+          pluridisciplinaires en intégrant les risques cyber.
+        </p>
         <div class="text-sm text-skin-muted">
-          <h5 class="font-semibold text-skin-base text-xs mb-1">PROJETS ASSOCIES :</h5>
-          <p>SAÉ S5 (AuditAD en groupe), SAÉ S6 (Wazuh/ELK en équipe).</p>
+          <h5 class="mb-1 text-xs font-semibold text-skin-base">
+            PROJETS ASSOCIES :
+          </h5>
+          <p>SAÉ S5 (Projet "Graye" en groupe), SAÉ S6 (Projet "Voronoi" en équipe).</p>
         </div>
         <div class="text-sm text-skin-muted">
-          <h5 class="font-semibold text-skin-base text-xs mb-1">AUTO-EVALUATION :</h5>
-          <p>Gestion des livrables en méthodologie agile et intégration systématique de la sécurité dès l'analyse initiale des risques.</p>
+          <h5 class="mb-1 text-xs font-semibold text-skin-base">
+            AUTO-EVALUATION :
+          </h5>
+          <p>
+            Gestion des livrables en méthodologie agile et intégration
+            systématique de la sécurité dès l'analyse initiale des risques.
+          </p>
         </div>
       </div>
     </div>

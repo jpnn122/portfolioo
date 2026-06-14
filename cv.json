@@ -229,46 +229,42 @@
     "university": {
       "Projets Universitaires": [
         {
-          "name": "SAÉ S6 - Déploiement et automatisation d'un SOC",
+          "name": "SAÉ S6 - Logiciel de Visualisation de Diagrammes de Voronoi",
           "year": "BUT 3",
           "type": "Projet SAÉ",
           "image": {
-            "url": "/images/sae-s6-soc.png",
+            "url": "/images/sae-s6-voronoi.png",
             "position": "container"
           },
           "isActive": true,
-          "description": "Mise en place et automatisation d'un SOC (Security Operations Center) à l'aide d'outils SIEM open-source pour la détection et la réponse aux menaces en temps réel.",
+          "description": "Création d'un logiciel en Python avec interface utilisateur permettant la visualisation et l'analyse interactive des diagrammes de Voronoi.",
           "highlights": [
-            "🛡️ Déploiement de Wazuh et configuration d'agents de supervision sur des hôtes Windows/Linux",
-            "📊 Centralisation et indexation des journaux d'événements à l'aide d'une pile ELK (Elasticsearch, Kibana)",
-            "⚙️ Automatisation des mécanismes de réponse aux alertes critiques",
-            "🚨 Création de dashboards dynamiques pour la visualisation des menaces (scans de ports, brute force)",
-            "💡 Point positif : Compréhension opérationnelle fine de la surveillance de sécurité en entreprise",
-            "🛠️ Auto-évaluation : 10/10, notre projet est entièrement fonctionnel et simule de vrais scénarios de réponse aux incidents."
+            "⚙️ Implémentation des algorithmes de calcul géométrique pour tracer les partitions de Voronoi",
+            "🎨 Développement d'une interface graphique interactive pour manipuler les points en temps réel",
+            "📈 Point positif : Maîtrise des concepts algorithmiques de géométrie computationnelle et programmation UI en Python",
+            "🎯 Auto-évaluation : 10/10, logiciel très interactif et fluide, validant une bonne maîtrise de l'algorithmique géométrique."
           ],
-          "technologies": ["Wazuh", "Kibana", "Elasticsearch", "SIEM", "Python"],
+          "technologies": ["Python", "Interface Utilisateur", "Géométrie Algorithmique"],
           "team": "Équipe de 3 personnes",
           "duration": "4 mois"
         },
         {
-          "name": "SAÉ S5 - Audit de sécurité et durcissement d'infrastructure",
+          "name": "SAÉ S5 - Application de recommandation de nourriture (Graye)",
           "year": "BUT 3",
           "type": "Projet SAÉ",
           "image": {
-            "url": "/images/sae-s5-audit.png",
+            "url": "/images/sae-s5-graye.png",
             "position": "container"
           },
-          "isActive": false,
-          "description": "Audit de sécurité complet, pentesting et durcissement (hardening) d'une infrastructure d'entreprise virtualisée sous Active Directory et serveurs Linux.",
+          "isActive": true,
+          "description": "Conception et développement de l'application Graye, une plateforme Web de recommandation de nourriture suggérant des restaurants selon les préférences gustatives de l'utilisateur.",
           "highlights": [
-            "🔍 Réalisation de scans de vulnérabilités et tests d'intrusion réseau (Nmap, Nessus, Metasploit)",
-            "🛡️ Durcissement des politiques Active Directory (GPO) et sécurisation des protocoles",
-            "🐧 Configuration de pare-feux et sécurisation des accès distants",
-            "📋 Rédaction d'un rapport d'audit détaillé et préconisations selon les recommandations de l'ANSSI",
-            "📈 Point positif : Méthode de travail rigoureuse inspirée des standards professionnels d'audit de sécurité",
-            "🎯 Auto-évaluation : 9/10, j'ai beaucoup appris sur la posture d'auditeur et la mise en conformité de systèmes critiques."
+            "🔍 Algorithme de filtrage et suggestion de restaurants basé sur les critères de l'utilisateur",
+            "🛡️ Gestion de l'authentification et de la sécurité des données utilisateurs",
+            "💻 Interface utilisateur responsive et moderne conçue pour une expérience client intuitive",
+            "🎯 Auto-évaluation : 9/10, projet entièrement opérationnel et enrichissant en développement de logiques asynchrones."
           ],
-          "technologies": ["Active Directory", "Pentesting", "ANSSI", "Linux", "GPO"],
+          "technologies": ["TypeScript", "JavaScript", "HTML", "CSS"],
           "team": "Équipe de 4 personnes",
           "duration": "3 mois"
         },
