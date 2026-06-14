@@ -32,9 +32,9 @@
       },
       {
         "network": "CV",
-        "icon": "mdi:file-pdf-box",
+        "icon": "mdi:file-image",
         "username": "CV : Télécharger CV",
-        "url": "/images/CV.pdf"
+        "url": "/images/CV.png"
       }
     ],
     "beian": {
